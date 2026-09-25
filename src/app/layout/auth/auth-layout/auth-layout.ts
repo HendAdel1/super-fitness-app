@@ -6,6 +6,6 @@ import { AuthAside } from '../auth-aside/auth-aside';
   selector: 'app-auth-layout',
   imports: [RouterOutlet, AuthAside],
   templateUrl: './auth-layout.html',
-  styleUrl: './auth-layout.css',
+  styleUrl: './auth-layout.scss',
 })
 export class AuthLayout {}

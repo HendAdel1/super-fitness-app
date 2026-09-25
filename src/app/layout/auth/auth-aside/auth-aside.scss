@@ -9,10 +9,8 @@
   box-sizing: border-box;
   padding-inline: calc(32px * var(--auth-scale));
   padding-block: calc(153px * var(--auth-scale));
-}
 
-@media (min-width: 1024px) {
-  .auth-aside {
+  @media (min-width: 1024px) {
     border-right: calc(2px * var(--auth-scale)) solid rgb(255 65 0 / 0.2);
     box-shadow: 0 calc(4px * var(--auth-scale)) calc(79.8px * var(--auth-scale))
       calc(47px * var(--auth-scale)) rgb(0 0 0 / 0.25);
