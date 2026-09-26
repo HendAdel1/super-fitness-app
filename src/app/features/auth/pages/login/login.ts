@@ -9,7 +9,7 @@ import { AuthInput } from '../../../../shared/ui/auth-input/auth-input';
 import { AuthLink } from '../../../../shared/ui/auth-link/auth-link';
 import { AuthOrDivider } from '../../../../shared/ui/auth-or-divider/auth-or-divider';
 import { AuthSocialMediaIcons } from '../../../../shared/ui/auth-social-media-icons/auth-social-media-icons';
-import { AuthService } from '../../services/auth.service';
+import { LoginService } from '../../services/login/login.service';
 import { strongPasswordValidator } from '../../validators/auth.validators';
 
 @Component({
@@ -30,7 +30,7 @@ import { strongPasswordValidator } from '../../validators/auth.validators';
   styleUrl: './login.scss',
 })
 export class Login {
-  private readonly auth = inject(AuthService);
+  private readonly loginService = inject(LoginService);
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -69,19 +69,19 @@ export class Login {
     this.isSubmitting.set(true);
     this.loginError.set(null);
 
-    this.auth.signIn(this.form.getRawValue()).subscribe({
+    this.loginService.login(this.form.getRawValue()).subscribe({
       next: (response) => {
-        const token = this.auth.resolveToken(response);
+        const token = this.loginService.resolveToken(response);
         if (!token) {
           this.loginError.set('Login failed');
           return;
         }
 
-        this.auth.saveToken(token);
+        this.loginService.saveToken(token);
         void this.router.navigateByUrl('/home');
       },
       error: (error: { error?: unknown }) => {
-        this.loginError.set(this.auth.readSignInError(error.error));
+        this.loginError.set(this.loginService.readLoginError(error.error));
       },
       complete: () => {
         this.isSubmitting.set(false);

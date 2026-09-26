@@ -1,18 +1,18 @@
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { environment } from '../../../../environments/environment';
-import { AuthService } from './auth.service';
+import { environment } from '../../../../../environments/environment';
+import { LoginService } from './login.service';
 
-describe('AuthService', () => {
-  let service: AuthService;
+describe('LoginService', () => {
+  let service: LoginService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()],
     });
-    service = TestBed.inject(AuthService);
+    service = TestBed.inject(LoginService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -20,10 +20,10 @@ describe('AuthService', () => {
     httpMock.verify();
   });
 
-  it('posts sign-in credentials', () => {
+  it('posts login credentials', () => {
     const body = { email: 'user@example.com', password: 'Secret@123' };
 
-    service.signIn(body).subscribe((response) => {
+    service.login(body).subscribe((response) => {
       expect(response.token).toBe('jwt');
     });
 
