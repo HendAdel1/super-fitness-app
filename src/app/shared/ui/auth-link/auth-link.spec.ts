@@ -1,54 +1,48 @@
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, RouterLink } from '@angular/router';
 import { AuthLink } from './auth-link';
+
+@Component({
+  template: `
+    <app-auth-link>
+      <span text>Lead </span>
+      <a link routerLink="/auth/register">Register</a>
+    </app-auth-link>
+  `,
+  imports: [AuthLink, RouterLink],
+})
+class AuthLinkHost {}
 
 describe('AuthLink', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthLink],
+      imports: [AuthLink, AuthLinkHost],
       providers: [provideRouter([])],
     }).compileComponents();
   });
 
-  it('renders login footer link to register', () => {
+  it('should create', () => {
     const fixture = TestBed.createComponent(AuthLink);
-    fixture.componentRef.setInput('variant', 'login-register');
     fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
-
-    expect(el.querySelector('.auth-link__lead')?.textContent).toContain('Dont Have An Account Yet');
-    expect(el.querySelector('.auth-link__action')?.textContent?.trim()).toBe('Register');
-    expect(el.querySelector('a.auth-link__action')?.getAttribute('href')).toContain('/auth/register');
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('renders register footer link to login', () => {
-    const fixture = TestBed.createComponent(AuthLink);
-    fixture.componentRef.setInput('variant', 'register-login');
+  it('projects text and link content', () => {
+    const fixture = TestBed.createComponent(AuthLinkHost);
     fixture.detectChanges();
 
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('a.auth-link__action')?.textContent?.trim()).toBe('Login');
+    const el = fixture.nativeElement.querySelector('.auth-link') as HTMLElement;
+    expect(el.textContent).toContain('Lead');
+    expect(el.textContent).toContain('Register');
+    expect(el.querySelector('a')?.getAttribute('href')).toContain('/auth/register');
   });
 
-  it('emits action for otp resend', () => {
+  it('applies customClass', () => {
     const fixture = TestBed.createComponent(AuthLink);
-    fixture.componentRef.setInput('variant', 'otp-resend');
+    fixture.componentRef.setInput('customClass', 'text-end');
     fixture.detectChanges();
 
-    let emitted = false;
-    fixture.componentInstance.action.subscribe(() => (emitted = true));
-    (fixture.nativeElement.querySelector('.auth-link__action') as HTMLButtonElement).click();
-
-    expect(emitted).toBe(true);
-  });
-
-  it('renders forgot password inline link', () => {
-    const fixture = TestBed.createComponent(AuthLink);
-    fixture.componentRef.setInput('variant', 'forgot-password');
-    fixture.detectChanges();
-
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('.auth-link')?.classList.contains('text-end')).toBe(true);
-    expect(el.querySelector('a')?.textContent?.trim()).toBe('Forget Password ?');
+    expect(fixture.nativeElement.querySelector('.auth-link')?.classList.contains('text-end')).toBe(true);
   });
 });

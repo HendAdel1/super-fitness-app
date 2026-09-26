@@ -1,16 +1,20 @@
-import { Component, computed, input, output } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { AUTH_LINK_CONFIG, type AuthLinkVariant } from '../../utils/auth-link.config';
+import { Component, input } from '@angular/core';
 
+/**
+ * 
+ *
+ * @example
+ * <app-auth-link>
+ *   <span text>Dont Have An Account Yet ? </span>
+ *   <a link routerLink="/auth/register">Register</a>
+ * </app-auth-link>
+ */
 @Component({
   selector: 'app-auth-link',
-  imports: [RouterLink],
   templateUrl: './auth-link.html',
   styleUrl: './auth-link.scss',
 })
 export class AuthLink {
-  readonly variant = input.required<AuthLinkVariant>();
-  readonly action = output<void>();
-
-  protected readonly config = computed(() => AUTH_LINK_CONFIG[this.variant()]);
+  /** Tailwind alignment / spacing classes (e.g. `text-center`, `text-end`). */
+  readonly customClass = input('text-center');
 }
