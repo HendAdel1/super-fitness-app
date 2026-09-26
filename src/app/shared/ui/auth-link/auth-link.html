@@ -1,0 +1,42 @@
+@let link = config();
+
+<div
+  class="auth-link w-full"
+  [class.text-center]="link.align === 'center'"
+  [class.text-end]="link.align === 'end'"
+>
+  @if (link.kind === 'action') {
+    <div class="auth-link__stack flex flex-col items-center gap-1 text-center">
+      <p class="auth-link__lead m-0 font-baloo text-base font-normal leading-[1.4] text-silver">
+        {{ link.lead }}
+      </p>
+      <button
+        type="button"
+        class="auth-link__action cursor-pointer border-0 bg-transparent p-0 font-baloo text-base font-bold text-orange-500 hover:underline"
+        (click)="action.emit()"
+      >
+        {{ link.linkText }}
+      </button>
+    </div>
+  } @else {
+    <p
+      class="auth-link__text m-0 leading-[1.4] text-silver"
+      [class.font-baloo]="link.font === 'baloo'"
+      [class.font-rubik]="link.font === 'rubik'"
+      [class.text-base]="link.size === 'base'"
+      [class.text-sm]="link.size === 'sm'"
+      [class.font-normal]="link.size === 'base'"
+    >
+      @if (link.lead) {
+        <span class="auth-link__lead">{{ link.lead }}</span>
+      }
+
+      <a
+        class="auth-link__action font-bold text-orange-500 no-underline hover:underline"
+        [routerLink]="link.route"
+      >
+        {{ link.linkText }}
+      </a>
+    </p>
+  }
+</div>
