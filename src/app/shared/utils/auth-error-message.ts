@@ -17,5 +17,9 @@ export function getAuthErrorMessage(errors: ValidationErrors | null | undefined,
     return 'Please enter a valid email';
   }
 
+  if (errors['strongPassword']) {
+    return 'Use 8+ characters with upper, lower, and number';
+  }
+
   return null;
 }
