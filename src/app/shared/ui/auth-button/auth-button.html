@@ -1,0 +1,17 @@
+<button
+  class="auth-button cursor-pointer rounded-full px-8 py-2 font-baloo text-base font-semibold transition-colors"
+  [class.w-full]="fullWidth()"
+  [class.border-0]="tone() === 'primary'"
+  [class.bg-orange-500]="tone() === 'primary'"
+  [class.text-white]="tone() === 'primary'"
+  [class.hover:brightness-105]="tone() === 'primary'"
+  [class.border]="tone() === 'secondary'"
+  [class.border-orange-500]="tone() === 'secondary'"
+  [class.bg-transparent]="tone() === 'secondary'"
+  [class.text-orange-500]="tone() === 'secondary'"
+  [class.hover:bg-orange-500/10]="tone() === 'secondary'"
+  [type]="type()"
+  (click)="clicked.emit()"
+>
+  {{ displayLabel() }}
+</button>
