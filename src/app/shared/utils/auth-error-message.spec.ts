@@ -17,4 +17,10 @@ describe('getAuthErrorMessage', () => {
   it('returns the password mismatch message', () => {
     expect(getAuthErrorMessage({ passwordMismatch: true }, 'Confirm Password')).toBe('Passwords do not match');
   });
+
+  it('returns the strong password message', () => {
+    expect(getAuthErrorMessage({ strongPassword: true }, 'Password')).toBe(
+      'Use 8+ characters with upper, lower, and number',
+    );
+  });
 });

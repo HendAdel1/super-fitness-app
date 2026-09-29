@@ -7,7 +7,8 @@ export function strongPasswordValidator(): ValidatorFn {
       return null;
     }
 
-    const isStrong = value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value);
+    const isStrong =
+      value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value);
     return isStrong ? null : { strongPassword: true };
   };
 }
