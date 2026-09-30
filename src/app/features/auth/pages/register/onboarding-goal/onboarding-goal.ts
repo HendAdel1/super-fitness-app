@@ -7,6 +7,7 @@ import { RegisterService } from '../../../services/register/register.service';
 
 @Component({
   selector: 'app-onboarding-goal',
+  host: { class: 'block w-full max-w-[486px]' },
   imports: [AuthHeading, AuthButton, AuthRadioButton],
   templateUrl: './onboarding-goal.html',
   styleUrl: './onboarding-goal.scss',
