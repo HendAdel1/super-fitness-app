@@ -12,6 +12,9 @@
   </div>
 
   <div class="register-activity-level__actions w-full max-w-[344px]">
-    <app-auth-button kind="next" [disabled]="!activityLevel()" (clicked)="onNext()" />
+    @if (errorMessage(); as error) {
+      <app-auth-error class="mb-2 block" [message]="error" />
+    }
+    <app-auth-button kind="next" [disabled]="!activityLevel() || isSubmitting()" (clicked)="onNext()" />
   </div>
 </section>

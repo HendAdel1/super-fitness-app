@@ -48,7 +48,7 @@ export class RegisterService {
     }
   }
 
-  signup(body: RegisterFormRequest): Observable<RegisterFormResponse> {
+  signup(body: SignupDraft): Observable<RegisterFormResponse> {
     return this.http.post<RegisterFormResponse>(`${environment.apiBaseUrl}/auth/signup`, body);
   }
 
