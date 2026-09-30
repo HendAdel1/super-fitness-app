@@ -10,7 +10,11 @@ export const authRoutes: Routes = [
         path: 'login',
         loadComponent: () => import('./pages/login/login').then((m) => m.Login),
       },
-      { path: 'register', pathMatch: 'full', redirectTo: 'register/age' },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./pages/register/register-form/register-form').then((m) => m.RegisterForm),
+      },
       {
         path: 'register/age',
         loadComponent: () => import('./pages/register/age/age').then((m) => m.RegisterAge),
