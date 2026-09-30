@@ -3,8 +3,8 @@ import { By } from '@angular/platform-browser';
 import { AuthRadioButton, RadioOption } from './auth-radio-button';
 
 describe('AuthRadioButton', () => {
-  let component: AuthRadioButton<string>;
-  let fixture: ComponentFixture<AuthRadioButton<string>>;
+  let component: AuthRadioButton<unknown>;
+  let fixture: ComponentFixture<AuthRadioButton<unknown>>;
 
   const mockOptions: RadioOption<string>[] = [
     { id: '1', label: 'Rookie', value: 'rookie' },
@@ -64,26 +64,26 @@ describe('AuthRadioButton', () => {
     const labels = fixture.debugElement.queryAll(By.css('label'));
     
     // First option should have active classes
-    expect(labels[0].classes['border-orange-500']).toBeTrue();
-    expect(labels[0].classes['text-orange-500']).toBeTrue();
+    expect(labels[0].classes['border-orange-500']).toBe(true);
+    expect(labels[0].classes['text-orange-500']).toBe(true);
     
     // Second option should have inactive classes
-    expect(labels[1].classes['border-white/15']).toBeTrue();
-    expect(labels[1].classes['text-gray-300']).toBeTrue();
+    expect(labels[1].classes['border-white/15']).toBe(true);
+    expect(labels[1].classes['text-gray-300']).toBe(true);
   });
 
   it('should render the inner dot indicator only for the selected option', () => {
     fixture.componentRef.setInput('value', 'intermediate');
     fixture.detectChanges();
 
-    const dots = fixture.debugElement.queryAll(By.css('.bg-orange-500.w-3.h-3'));
+    const dots = fixture.debugElement.queryAll(By.css('div.bg-orange-500'));
     
     // Only one active dot should be rendered
     expect(dots.length).toBe(1);
     
     // The dot should be inside the third option
     const labels = fixture.debugElement.queryAll(By.css('label'));
-    const thirdOptionDot = labels[2].query(By.css('.bg-orange-500.w-3.h-3'));
+    const thirdOptionDot = labels[2].query(By.css('div.bg-orange-500'));
     expect(thirdOptionDot).toBeTruthy();
   });
 });
