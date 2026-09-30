@@ -15,6 +15,6 @@
   </div>
 
   <div class="register-goal__actions w-full max-w-[344px]">
-    <app-auth-button kind="next" (clicked)="onNext()" />
+    <app-auth-button kind="next" [disabled]="!goal()" (clicked)="onNext()" />
   </div>
 </section>
