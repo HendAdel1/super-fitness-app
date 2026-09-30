@@ -19,6 +19,21 @@ export const authRoutes: Routes = [
         path: 'register/age',
         loadComponent: () => import('./pages/register/age/age').then((m) => m.RegisterAge),
       },
+      {
+        path: 'forgot-password',
+        loadComponent: () =>
+          import('./pages/forgot-password/forgot-password').then((m) => m.ForgotPassword),
+      },
+      {
+        path: 'verify-code',
+        loadComponent: () =>
+          import('./pages/verify-code/verify-code').then((m) => m.VerifyCode),
+      },
+      {
+        path: 'reset-password',
+        loadComponent: () =>
+          import('./pages/reset-password/reset-password').then((m) => m.ResetPassword),
+      },
     ],
   },
 ];

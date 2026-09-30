@@ -1,0 +1,36 @@
+<div class="verify-code flex w-full flex-col gap-4">
+  <app-auth-heading headline="OTP CODE" />
+
+  <div
+    class="verify-code__card flex w-full flex-col gap-6 rounded-[50px] border border-muted px-[87.5px] py-[40px]"
+  >
+    <p class="verify-code__label m-0 text-center font-rubik text-base font-normal text-white">
+      Enter Your OTP Check Your Email
+    </p>
+
+    <app-auth-otp-input
+      [length]="6"
+      [(value)]="otpCode"
+      (completed)="onOtpCompleted($event)"
+    />
+
+    @if (errorMessage(); as message) {
+      <app-auth-error [message]="message" />
+    }
+
+    @if (resendSuccessMessage(); as successMsg) {
+      <p class="m-0 text-center font-rubik text-sm text-green-400">{{ successMsg }}</p>
+    }
+
+    <div class="verify-code__cta flex flex-col gap-3">
+      <app-auth-button kind="confirm" label="Confirm" (clicked)="onConfirm()" />
+
+      <app-auth-link>
+        <span text>Didn't Receive Verification Code? </span>
+        <button link type="button" (click)="onResend()" [disabled]="isResending()">
+          {{ isResending() ? 'Sending...' : 'Resend Code' }}
+        </button>
+      </app-auth-link>
+    </div>
+  </div>
+</div>
