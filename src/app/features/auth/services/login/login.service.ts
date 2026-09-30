@@ -2,24 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
+import { AuthService } from '../../../../core/services/auth.service';
 import type { ApiErrorBody } from '../../models/shared/api-error.model';
 import type { LoginRequest, LoginResponse } from '../../models/login/login.models';
-
-const TOKEN_STORAGE_KEY = 'super_fitness_auth_token';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   private readonly http = inject(HttpClient);
+  private readonly authService = inject(AuthService);
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.apiBaseUrl}/auth/signin`, credentials);
   }
 
   saveToken(token: string): void {
-    if (typeof sessionStorage === 'undefined') {
-      return;
-    }
-    sessionStorage.setItem(TOKEN_STORAGE_KEY, token);
+    this.authService.saveToken(token);
   }
 
   readLoginError(body: unknown): string {
