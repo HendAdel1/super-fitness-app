@@ -27,7 +27,7 @@ export class OnboardingGoal {
 
   protected onNext(): void {
     this.registerService.updateDraft({ goal: this.goal() });
-    // Navigate to the next registration step
+    void this.router.navigateByUrl('/auth/register/activity-level');
   }
 }
 
