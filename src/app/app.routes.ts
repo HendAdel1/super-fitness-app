@@ -1,9 +1,18 @@
+import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
 import { guestGuard } from './core/guards/guest.guard';
+import { AuthService } from './core/services/auth.service';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: () => {
+      const authService = inject(AuthService);
+      return authService.isAuthenticated() ? 'home' : 'auth/login';
+    },
+  },
   {
     path: 'home',
     canActivate: [authGuard],
@@ -13,6 +22,13 @@ export const routes: Routes = [
     path: 'auth',
     canActivate: [guestGuard],
     loadChildren: () => import('./features/auth/auth.routes').then((m) => m.authRoutes),
+  },
+  {
+    path: '**',
+    redirectTo: () => {
+      const authService = inject(AuthService);
+      return authService.isAuthenticated() ? 'home' : 'auth/login';
+    },
   },
 ];
 
