@@ -31,6 +31,13 @@ export const authRoutes: Routes = [
         loadComponent: () =>
           import('./pages/register/onboarding-goal/onboarding-goal').then((m) => m.OnboardingGoal),
       },
+      {
+        path: 'register/activity-level',
+        loadComponent: () =>
+          import('./pages/register/onboarding-activity-level/onboarding-activity-level').then(
+            (m) => m.OnboardingActivityLevel,
+          ),
+      },
     ],
   },
 ];

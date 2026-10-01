@@ -7,6 +7,7 @@ import { RegisterService } from '../../../services/register/register.service';
 
 @Component({
   selector: 'app-onboarding-goal',
+  host: { class: 'block w-full max-w-[486px]' },
   imports: [AuthHeading, AuthButton, AuthRadioButton],
   templateUrl: './onboarding-goal.html',
   styleUrl: './onboarding-goal.scss',
@@ -27,7 +28,7 @@ export class OnboardingGoal {
 
   protected onNext(): void {
     this.registerService.updateDraft({ goal: this.goal() });
-    // Navigate to the next registration step
+    void this.router.navigateByUrl('/auth/register/activity-level');
   }
 }
 
