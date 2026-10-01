@@ -1,7 +1,9 @@
-import { Component, model } from '@angular/core';
+import { Component, inject, model } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthButton } from '../../../../../shared/ui/auth-button/auth-button';
 import { AuthHeading } from '../../../../../shared/ui/auth-heading/auth-heading';
 import { AuthNumberPicker } from '../../../../../shared/ui/auth-number-picker/auth-number-picker';
+import { RegisterService } from '../../../services/register/register.service';
 
 @Component({
   selector: 'app-register-age',
@@ -10,9 +12,13 @@ import { AuthNumberPicker } from '../../../../../shared/ui/auth-number-picker/au
   styleUrl: './age.scss',
 })
 export class RegisterAge {
-  readonly age = model(25);
+  private readonly registerService = inject(RegisterService);
+  private readonly router = inject(Router);
+
+  readonly age = model(this.registerService.draftData().age ?? 25);
 
   protected onNext(): void {
-    // Next registration step will be wired when the flow is built.
+    this.registerService.updateDraft({ age: this.age() });
+    void this.router.navigateByUrl('/auth/register/goal');
   }
 }

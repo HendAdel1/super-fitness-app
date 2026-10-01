@@ -8,7 +8,6 @@ import type {
   RegisterFormResponse,
   SignupDraft,
 } from '../../models/register/register.models';
-
 import { AuthService } from '../../../../core/services/auth.service';
 
 const DRAFT_STORAGE_KEY = 'signup_wizard_draft';
@@ -49,7 +48,7 @@ export class RegisterService {
     }
   }
 
-  signup(body: RegisterFormRequest): Observable<RegisterFormResponse> {
+  signup(body: SignupDraft): Observable<RegisterFormResponse> {
     return this.http.post<RegisterFormResponse>(`${environment.apiBaseUrl}/auth/signup`, body);
   }
 

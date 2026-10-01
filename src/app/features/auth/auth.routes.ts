@@ -19,6 +19,18 @@ export const authRoutes: Routes = [
         path: 'register/age',
         loadComponent: () => import('./pages/register/age/age').then((m) => m.RegisterAge),
       },
+      {
+        path: 'register/goal',
+        loadComponent: () =>
+          import('./pages/register/onboarding-goal/onboarding-goal').then((m) => m.OnboardingGoal),
+      },
+      {
+        path: 'register/activity-level',
+        loadComponent: () =>
+          import('./pages/register/onboarding-activity-level/onboarding-activity-level').then(
+            (m) => m.OnboardingActivityLevel,
+          ),
+      },
     ],
   },
 ];
