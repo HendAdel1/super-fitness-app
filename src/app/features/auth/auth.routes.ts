@@ -34,6 +34,21 @@ export const authRoutes: Routes = [
             (m) => m.OnboardingActivityLevel,
           ),
       },
+      {
+        path: 'forgot-password',
+        loadComponent: () =>
+          import('./pages/forgot-password/forgot-password').then((m) => m.ForgotPassword),
+      },
+      {
+        path: 'verify-code',
+        loadComponent: () =>
+          import('./pages/verify-code/verify-code').then((m) => m.VerifyCode),
+      },
+      {
+        path: 'reset-password',
+        loadComponent: () =>
+          import('./pages/reset-password/reset-password').then((m) => m.ResetPassword),
+      },
     ],
   },
 ];
