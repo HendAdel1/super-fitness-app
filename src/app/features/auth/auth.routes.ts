@@ -23,6 +23,10 @@ export const authRoutes: Routes = [
         path: 'register/gender',
         loadComponent: () => import('./pages/register/gender/gender-selection/gender-selection').then((m) => m.GenderSelection),
       },
+             {
+        path: 'register/weight',
+        loadComponent: () => import('./pages/register/weight/weight').then((m) => m.Weight),
+      },
     ],
   },
 ];
