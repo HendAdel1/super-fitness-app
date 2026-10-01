@@ -19,9 +19,10 @@ export const authRoutes: Routes = [
         path: 'register/age',
         loadComponent: () => import('./pages/register/age/age').then((m) => m.RegisterAge),
       },
-       {
+      {
         path: 'register/gender',
         loadComponent: () => import('./pages/register/gender/gender-selection/gender-selection').then((m) => m.GenderSelection),
+      },
       {
         path: 'register/goal',
         loadComponent: () =>
