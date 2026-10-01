@@ -19,6 +19,7 @@ export class AuthButton {
   readonly label = input<string>();
   readonly type = input<'button' | 'submit'>('button');
   readonly fullWidth = input(true);
+  readonly disabled = input(false);
 
   readonly clicked = output<void>();
 
