@@ -8,14 +8,14 @@ import type {
   RegisterFormResponse,
   SignupDraft,
 } from '../../models/register/register.models';
-
-const TOKEN_STORAGE_KEY = 'super_fitness_auth_token';
+import { AuthService } from '../../../../core/services/auth.service';
 
 const DRAFT_STORAGE_KEY = 'signup_wizard_draft';
 
 @Injectable({ providedIn: 'root' })
 export class RegisterService {
   private readonly http = inject(HttpClient);
+  private readonly authService = inject(AuthService);
 
   readonly draftData = signal<SignupDraft>({});
 
@@ -53,10 +53,7 @@ export class RegisterService {
   }
 
   saveToken(token: string): void {
-    if (typeof sessionStorage === 'undefined') {
-      return;
-    }
-    sessionStorage.setItem(TOKEN_STORAGE_KEY, token);
+    this.authService.saveToken(token);
   }
 
   readRegisterError(body: unknown): string {

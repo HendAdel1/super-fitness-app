@@ -22,6 +22,10 @@ export const authRoutes: Routes = [
             {
         path: 'register/height',
         loadComponent: () => import('./pages/register/height/height').then((m) => m.Height),
+      {
+        path: 'register/goal',
+        loadComponent: () =>
+          import('./pages/register/onboarding-goal/onboarding-goal').then((m) => m.OnboardingGoal),
       },
     ],
   },
