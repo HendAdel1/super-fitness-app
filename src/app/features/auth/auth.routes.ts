@@ -22,10 +22,20 @@ export const authRoutes: Routes = [
             {
         path: 'register/height',
         loadComponent: () => import('./pages/register/height/height').then((m) => m.Height),
+       {
+        path: 'register/gender',
+        loadComponent: () => import('./pages/register/gender/gender-selection/gender-selection').then((m) => m.GenderSelection),
       {
         path: 'register/goal',
         loadComponent: () =>
           import('./pages/register/onboarding-goal/onboarding-goal').then((m) => m.OnboardingGoal),
+      },
+      {
+        path: 'register/activity-level',
+        loadComponent: () =>
+          import('./pages/register/onboarding-activity-level/onboarding-activity-level').then(
+            (m) => m.OnboardingActivityLevel,
+          ),
       },
     ],
   },
