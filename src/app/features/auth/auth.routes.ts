@@ -19,16 +19,21 @@ export const authRoutes: Routes = [
         path: 'register/age',
         loadComponent: () => import('./pages/register/age/age').then((m) => m.RegisterAge),
       },
-            {
+      {
         path: 'register/height',
         loadComponent: () => import('./pages/register/height/height').then((m) => m.Height),
-       {
-        path: 'register/gender',
-        loadComponent: () => import('./pages/register/gender/gender-selection/gender-selection').then((m) => m.GenderSelection),
       },
-             {
+      {
+        path: 'register/gender',
+        loadComponent: () =>
+          import('./pages/register/gender/gender-selection/gender-selection').then(
+            (m) => m.GenderSelection,
+          ),
+      },
+      {
         path: 'register/weight',
         loadComponent: () => import('./pages/register/weight/weight').then((m) => m.Weight),
+      },
       {
         path: 'register/goal',
         loadComponent: () =>
