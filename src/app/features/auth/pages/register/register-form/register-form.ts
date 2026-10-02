@@ -74,7 +74,7 @@ export class RegisterForm {
     }
 
     this.registerService.updateDraft(this.form.getRawValue());
-    void this.router.navigateByUrl('/auth/register/age');
+    void this.router.navigateByUrl('/auth/register/gender');
   }
 }
 

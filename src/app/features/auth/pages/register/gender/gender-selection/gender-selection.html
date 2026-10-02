@@ -12,8 +12,8 @@
       type="button"
       (click)="selectGender('male')"
       [ngClass]="{
-        'bg-[#FF4500] border-[#FF4500] shadow-lg shadow-[#FF4500]/40': selectedGender === 'male',
-        'bg-transparent border-gray-500 hover:border-[#FF4500]': selectedGender !== 'male'
+        'bg-[#FF4500] border-[#FF4500] shadow-lg shadow-[#FF4500]/40': gender() === 'male',
+        'bg-transparent border-gray-500 hover:border-[#FF4500]': gender() !== 'male'
       }"
       class="w-24 h-24 rounded-full border-2 text-white flex flex-col items-center justify-center transition-all duration-300 outline-none cursor-pointer">
       <svg class="w-7 h-7 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -29,8 +29,8 @@
       type="button"
       (click)="selectGender('female')"
       [ngClass]="{
-        'bg-[#FF4500] border-[#FF4500] shadow-lg shadow-[#FF4500]/40': selectedGender === 'female',
-        'bg-transparent border-gray-500 hover:border-[#FF4500]': selectedGender !== 'female'
+        'bg-[#FF4500] border-[#FF4500] shadow-lg shadow-[#FF4500]/40': gender() === 'female',
+        'bg-transparent border-gray-500 hover:border-[#FF4500]': gender() !== 'female'
       }"
       class="w-24 h-24 rounded-full border-2 text-white flex flex-col items-center justify-center transition-all duration-300 outline-none cursor-pointer">
       <svg class="w-7 h-7 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

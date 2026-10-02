@@ -19,6 +19,6 @@ export class RegisterAge {
 
   protected onNext(): void {
     this.registerService.updateDraft({ age: this.age() });
-    void this.router.navigateByUrl('/auth/register/goal');
+    void this.router.navigateByUrl('/auth/register/weight');
   }
 }

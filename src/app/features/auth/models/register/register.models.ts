@@ -21,7 +21,7 @@ export interface RegisterFormResponse {
 }
 
 export interface SignupDraft extends Partial<RegisterFormRequest> {
-  gender?: string;
+  gender?: 'male' | 'female';
   age?: number;
   weight?: number;
   height?: number;

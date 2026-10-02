@@ -1,7 +1,9 @@
-import { Component, model } from '@angular/core';
+import { Component, inject, model, signal } from '@angular/core';
 import { AuthButton } from '../../../../../shared/ui/auth-button/auth-button';
 import { AuthHeading } from '../../../../../shared/ui/auth-heading/auth-heading';
 import { AuthNumberPicker } from '../../../../../shared/ui/auth-number-picker/auth-number-picker';
+import { RegisterService } from '../../../services/register/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-weight',
@@ -10,9 +12,19 @@ import { AuthNumberPicker } from '../../../../../shared/ui/auth-number-picker/au
   styleUrl: './weight.scss',
 })
 export class Weight {
-    readonly weight = model(90);
+private readonly registerService = inject(RegisterService);
+  private readonly router = inject(Router);
+
+  readonly weight = signal<number>(
+    this.registerService.draftData().weight ?? 90
+  );
 
   protected onNext(): void {
-    // Next registration step will be wired when the flow is built.
+    const selectedWeight = this.weight();
+    if (!selectedWeight) return;
+
+    this.registerService.updateDraft({ weight: selectedWeight });
+
+    void this.router.navigateByUrl('/auth/register/height');
   }
 }
