@@ -4,10 +4,10 @@ import type { Observable } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
 import type { ApiErrorBody } from '../../models/shared/api-error.model';
 import type {
-  RegisterFormRequest,
   RegisterFormResponse,
   SignupDraft,
 } from '../../models/register/register.models';
+import type { AuthUser } from '../../../../core/models/auth.models';
 import { AuthService } from '../../../../core/services/auth.service';
 
 const DRAFT_STORAGE_KEY = 'signup_wizard_draft';
@@ -52,8 +52,8 @@ export class RegisterService {
     return this.http.post<RegisterFormResponse>(`${environment.apiBaseUrl}/auth/signup`, body);
   }
 
-  saveToken(token: string): void {
-    this.authService.saveToken(token);
+  saveToken(token: string, user?: AuthUser | null): void {
+    this.authService.saveToken(token, user);
   }
 
   readRegisterError(body: unknown): string {

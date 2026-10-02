@@ -12,6 +12,13 @@ export interface RegisterFormUser {
   email: string;
   _id: string;
   createdAt: string;
+  gender?: string;
+  age?: number;
+  weight?: number;
+  height?: number;
+  activityLevel?: string;
+  goal?: string;
+  photo?: string;
 }
 
 export interface RegisterFormResponse {

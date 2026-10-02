@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { BehaviorSubject, type Observable, tap } from 'rxjs';
@@ -38,8 +38,13 @@ export class AuthService {
   /** Angular Signal representing the current user for template consumption */
   readonly currentUser = toSignal(this.currentUser$, { initialValue: this.getStoredUser() });
 
-  /** Angular Signal representing the authentication status for template consumption */
-  readonly isAuthenticated = toSignal(this.isAuthenticated$, { initialValue: this.hasValidToken() });
+  /**
+   * Angular Signal representing the authentication status for template consumption.
+   * Uses computed to always reflect the BehaviorSubject's current value synchronously,
+   * avoiding stale reads from toSignal() during guard evaluation after login/signup.
+   */
+  private readonly isAuthenticatedSignal = toSignal(this.isAuthenticated$, { initialValue: this.hasValidToken() });
+  readonly isAuthenticated = computed(() => this.isAuthenticatedSignal() || this.isAuthenticatedSubject.value);
 
   // -------------------------------------------------------------
   // HTTP Endpoints

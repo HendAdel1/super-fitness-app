@@ -167,7 +167,7 @@ describe('OnboardingActivityLevel', () => {
     const button = fixture.debugElement.query(By.directive(AuthButton));
     button.componentInstance.clicked.emit();
 
-    expect(mockRegisterService.saveToken).toHaveBeenCalledWith('abc123');
+    expect(mockRegisterService.saveToken).toHaveBeenCalledWith('abc123', mockResponse.user);
     expect(mockRegisterService.clearDraft).toHaveBeenCalled();
     expect(mockRouter.navigateByUrl).toHaveBeenCalledWith('/home');
   });

@@ -44,7 +44,7 @@ export class OnboardingActivityLevel {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (response) => {
-          this.registerService.saveToken(response.token);
+          this.registerService.saveToken(response.token, response.user);
           this.registerService.clearDraft();
           void this.router.navigateByUrl('/home');
         },
