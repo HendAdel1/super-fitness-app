@@ -1,0 +1,205 @@
+// =============================================================================
+// Super Fitness - Light Mode Theme
+// Elegant, high-contrast, modern clean light theme
+// =============================================================================
+
+html.light {
+  color-scheme: light;
+
+  // Background overrides
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  .bg-ink {
+    background-color: #f8fafc !important;
+  }
+
+  // Auth Layout Backdrop in Light Mode
+  .auth-layout-backdrop {
+    background-color: #f1f5f9 !important;
+    background-image: linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.88)),
+      url('/assets/images/auth/auth-bg-blurred.webp') !important;
+  }
+
+  // Auth Form Cards (Login, Register, Forgot Password, Verify Code, Reset Password)
+  .login__form,
+  .register-form__form,
+  .forgot-password__form,
+  .verify-code__card,
+  .reset-password__form,
+  .rounded-\[50px\].border-muted {
+    background-color: rgba(255, 255, 255, 0.92) !important;
+    border-color: #e2e8f0 !important;
+    box-shadow:
+      0 20px 35px -10px rgba(0, 0, 0, 0.05),
+      0 0 1px 1px rgba(0, 0, 0, 0.03) !important;
+    backdrop-filter: blur(16px);
+  }
+
+  // Headings & Text
+  .auth-heading__headline,
+  .login__title,
+  .register-form__title,
+  h1:not(.text-orange-500),
+  h2:not(.text-orange-500) {
+    color: #0f172a !important;
+  }
+
+  .auth-heading__lead,
+  .forgot-password__label,
+  .verify-code__label,
+  .reset-password__instruction,
+  p.text-white {
+    color: #334155 !important;
+  }
+
+  .auth-heading__support,
+  .text-silver {
+    color: #64748b !important;
+  }
+
+  .auth-link {
+    color: #64748b !important;
+  }
+
+  // Form Inputs (AuthInput)
+  .auth-input__field {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+
+    &:focus-within {
+      border-color: var(--color-orange-500, #ff4100) !important;
+      box-shadow: 0 0 0 3px rgba(255, 65, 0, 0.12) !important;
+    }
+  }
+
+  .auth-input__control {
+    color: #0f172a !important;
+
+    &::placeholder {
+      color: #94a3b8 !important;
+    }
+  }
+
+  .auth-input__icon,
+  .auth-input__toggle {
+    color: #64748b !important;
+
+    &:hover {
+      color: #0f172a !important;
+    }
+  }
+
+  // Dividers
+  .auth-or-divider__line {
+    background-color: #e2e8f0 !important;
+  }
+
+  .auth-or-divider__label {
+    color: #64748b !important;
+  }
+
+  // Social Media Icons
+  .auth-social-media-icons__item {
+    background-color: #f1f5f9 !important;
+    color: #1e293b !important;
+    border: 1px solid #e2e8f0 !important;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #e2e8f0 !important;
+      color: var(--color-orange-500, #ff4100) !important;
+      border-color: var(--color-orange-500, #ff4100) !important;
+    }
+  }
+
+  // OTP Input Boxes
+  .auth-otp-input__box {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+
+    &:focus,
+    &.border-orange-500 {
+      border-color: var(--color-orange-500, #ff4100) !important;
+      box-shadow: 0 0 0 3px rgba(255, 65, 0, 0.12) !important;
+    }
+  }
+
+  // Number Picker (Age, Height, Weight)
+  .auth-number-picker__item {
+    color: #334155 !important;
+
+    &--d0 {
+      color: var(--color-orange-500, #ff4100) !important;
+    }
+  }
+
+  // Radio Buttons (Goals, Activity Level)
+  app-auth-radio-button label {
+    &:not(.border-orange-500) {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+
+      &:hover {
+        background-color: #f8fafc !important;
+        border-color: #cbd5e1 !important;
+      }
+
+      .text-gray-300 {
+        color: #334155 !important;
+      }
+    }
+
+    &.border-orange-500 {
+      background-color: rgba(255, 65, 0, 0.06) !important;
+    }
+  }
+
+  // Gender Selection
+  .register-gender button {
+    &:not(.bg-\[\#FF4500\]) {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #334155 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+      &:hover {
+        border-color: var(--color-orange-500, #ff4100) !important;
+        color: var(--color-orange-500, #ff4100) !important;
+      }
+    }
+  }
+
+  // Preferences Switcher Widget
+  app-language-switcher > div {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-color: #e2e8f0 !important;
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+
+    .bg-\[\#3a3a3c\] {
+      background-color: #e2e8f0 !important;
+    }
+
+    button:not(.bg-\[\#ff4100\]) {
+      color: #64748b !important;
+
+      &:hover {
+        color: #0f172a !important;
+      }
+    }
+  }
+
+  // Home Page
+  header.border-metal\/20 {
+    border-color: #e2e8f0 !important;
+  }
+}
