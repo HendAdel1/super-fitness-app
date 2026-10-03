@@ -7,10 +7,12 @@ import { AuthLink } from '../../../../shared/ui/auth-link/auth-link';
 import { AuthOtpInput } from '../../../../shared/ui/auth-otp-input/auth-otp-input';
 import { ForgotPasswordService } from '../../services/forgot-password/forgot-password.service';
 
+import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-verify-code',
   host: { class: 'block w-full max-w-[486px]' },
-  imports: [AuthHeading, AuthOtpInput, AuthButton, AuthLink, AuthError],
+  imports: [AuthHeading, AuthOtpInput, AuthButton, AuthLink, AuthError, TranslatePipe],
   templateUrl: './verify-code.html',
   styleUrl: './verify-code.scss',
 })

@@ -1,16 +1,20 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, inject, provideAppInitializer, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-
-import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { authInterceptor } from './core/interceptors/auth.interceptor';
+import { routes } from './app.routes';
+import { apiInterceptor } from './core/interceptors/api.interceptor';
+import { TranslationService } from './core/services/translation.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([apiInterceptor])),
     provideClientHydration(withEventReplay()),
+    provideAppInitializer(() => {
+      const translationService = inject(TranslationService);
+      return translationService.initLanguage();
+    }),
   ],
 };

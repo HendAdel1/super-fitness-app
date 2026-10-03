@@ -3,8 +3,8 @@
 >
   <app-auth-heading
     step="4/6"
-    headline="what is your height ?"
-    support="This Helps Us Create Your Personalized Plan"
+    [headline]="'ONBOARDING.HEIGHT.HEADLINE' | translate"
+    [support]="'ONBOARDING.HEIGHT.SUPPORT' | translate"
   />
 
   <app-auth-number-picker unit="cm" [min]="100" [max]="250" [(value)]="height" />

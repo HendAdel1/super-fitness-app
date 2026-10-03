@@ -12,6 +12,8 @@ import { AuthSocialMediaIcons } from '../../../../shared/ui/auth-social-media-ic
 import { LoginService } from '../../services/login/login.service';
 import { strongPasswordValidator } from '../../validators/auth.validators';
 
+import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-login',
   host: { class: 'block w-full max-w-[486px]' },
@@ -25,6 +27,7 @@ import { strongPasswordValidator } from '../../validators/auth.validators';
     AuthOrDivider,
     AuthSocialMediaIcons,
     AuthError,
+    TranslatePipe,
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',

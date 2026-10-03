@@ -1,24 +1,36 @@
 <div class="login flex w-full flex-col gap-4">
-  <app-auth-heading lead="Hey There" headline="WELCOME BACK" />
+  <app-auth-heading
+    [lead]="'AUTH.LOGIN_PAGE.LEAD' | translate"
+    [headline]="'AUTH.LOGIN_PAGE.HEADLINE' | translate"
+  />
 
   <form
     class="login__form flex w-full flex-col gap-4 rounded-[50px] border border-muted px-[87.5px] py-[40px]"
     [formGroup]="form"
     (ngSubmit)="onSubmit()"
   >
-    <h2 class="login__title m-0 text-center font-baloo text-xl font-bold text-white">Login</h2>
+    <h2 class="login__title m-0 text-center font-baloo text-xl font-bold text-white">
+      {{ 'AUTH.LOGIN_PAGE.TITLE' | translate }}
+    </h2>
 
-    <app-auth-input type="email" placeholder="Email" formControlName="email" autocomplete="email" />
+    <app-auth-input
+      type="email"
+      [placeholder]="'AUTH.LOGIN_PAGE.EMAIL_PLACEHOLDER' | translate"
+      formControlName="email"
+      autocomplete="email"
+    />
 
     <div class="login__password flex flex-col gap-1">
       <app-auth-input
         type="password"
-        placeholder="Password"
+        [placeholder]="'AUTH.LOGIN_PAGE.PASSWORD_PLACEHOLDER' | translate"
         formControlName="password"
         autocomplete="current-password"
       />
       <app-auth-link customClass="text-end">
-        <a link routerLink="/auth/forgot-password" class="font-rubik text-sm">Forgot Password?</a>
+        <a link routerLink="/auth/forgot-password" class="font-rubik text-sm">
+          {{ 'AUTH.LOGIN_PAGE.FORGOT_PASSWORD' | translate }}
+        </a>
       </app-auth-link>
     </div>
 
@@ -35,8 +47,8 @@
       <app-auth-button kind="login" type="submit" />
 
       <app-auth-link>
-        <span text>Dont Have An Account Yet ? </span>
-        <a link routerLink="/auth/register">Register</a>
+        <span text>{{ 'AUTH.LOGIN_PAGE.NO_ACCOUNT' | translate }}</span>
+        <a link routerLink="/auth/register">{{ 'AUTH.LOGIN_PAGE.REGISTER_LINK' | translate }}</a>
       </app-auth-link>
     </div>
   </form>

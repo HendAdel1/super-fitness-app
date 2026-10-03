@@ -2,8 +2,8 @@
 
   <app-auth-heading
     step="1/6"
-    headline="tell us about yourself!"
-    support="We Need To Know Your Gender"
+    [headline]="'ONBOARDING.GENDER.HEADLINE' | translate"
+    [support]="'ONBOARDING.GENDER.SUPPORT' | translate"
   />
 <!-- Options Container -->
   <div class="flex flex-col gap-5 mb-10">
@@ -21,7 +21,7 @@
         <line x1="19" y1="5" x2="13.6" y2="10.4"></line>
         <polyline points="19 10 19 5 14 5"></polyline>
       </svg>
-      <span class="text-xs font-medium">Male</span>
+      <span class="text-xs font-medium">{{ 'ONBOARDING.GENDER.MALE' | translate }}</span>
     </button>
 
     <!-- Female Option -->
@@ -38,7 +38,7 @@
         <line x1="12" y1="14" x2="12" y2="21"></line>
         <line x1="9" y1="18" x2="15" y2="18"></line>
       </svg>
-      <span class="text-xs font-medium">Female</span>
+      <span class="text-xs font-medium">{{ 'ONBOARDING.GENDER.FEMALE' | translate }}</span>
     </button>
   </div>
     <div class="register-gender__actions w-full max-w-[344px]">

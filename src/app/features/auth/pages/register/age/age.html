@@ -3,8 +3,8 @@
 >
   <app-auth-heading
     step="2/6"
-    headline="How Old Are You ?"
-    support="This Helps Us Create Your Personalized Plan"
+    [headline]="'ONBOARDING.AGE.HEADLINE' | translate"
+    [support]="'ONBOARDING.AGE.SUPPORT' | translate"
   />
 
   <app-auth-number-picker unit="yr" [min]="10" [max]="100" [(value)]="age" />

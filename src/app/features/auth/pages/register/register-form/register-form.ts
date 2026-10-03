@@ -11,6 +11,8 @@ import { authPasswordsMatchValidator } from '../../../../../shared/utils/auth-pa
 import { RegisterService } from '../../../services/register/register.service';
 import { strongPasswordValidator } from '../../../validators/auth.validators';
 
+import { TranslatePipe } from '../../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-register-form',
   host: { class: 'block w-full max-w-[486px]' },
@@ -23,6 +25,7 @@ import { strongPasswordValidator } from '../../../validators/auth.validators';
     AuthButton,
     AuthOrDivider,
     AuthSocialMediaIcons,
+    TranslatePipe,
   ],
   templateUrl: './register-form.html',
   styleUrl: './register-form.scss',

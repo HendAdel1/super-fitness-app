@@ -1,0 +1,123 @@
+{
+  "WELCOME": "Welcome to Super Fitness",
+  "APP_TITLE": "Super Fitness",
+  "LANGUAGE": "Language",
+  "ENGLISH": "English",
+  "ARABIC": "العربية",
+  "SWITCH_TO_ARABIC": "العربية",
+  "SWITCH_TO_ENGLISH": "English",
+  "CURRENT_LANGUAGE": "English",
+  "COMMON": {
+    "OR": "Or",
+    "SUBMIT": "Submit",
+    "CANCEL": "Cancel",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "SAVE": "Save",
+    "CONFIRM": "Confirm",
+    "DONE": "Done",
+    "LOADING": "Loading...",
+    "SENDING": "Sending...",
+    "RESEND_CODE": "Resend Code"
+  },
+  "AUTH": {
+    "BUTTONS": {
+      "LOGIN": "Login",
+      "REGISTER": "Register",
+      "NEXT": "Next",
+      "PREVIOUS": "Previous",
+      "DONE": "Done",
+      "CONFIRM": "Confirm",
+      "SENTOTP": "Send OTP"
+    },
+    "LOGIN_PAGE": {
+      "LEAD": "Hey There",
+      "HEADLINE": "WELCOME BACK",
+      "TITLE": "Login",
+      "EMAIL_PLACEHOLDER": "Email",
+      "PASSWORD_PLACEHOLDER": "Password",
+      "FORGOT_PASSWORD": "Forgot Password?",
+      "NO_ACCOUNT": "Dont Have An Account Yet ? ",
+      "REGISTER_LINK": "Register"
+    },
+    "REGISTER_PAGE": {
+      "LEAD": "Hey There",
+      "HEADLINE": "Create An Account",
+      "TITLE": "Register",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "EMAIL": "Email",
+      "PASSWORD": "Password",
+      "RE_PASSWORD": "Re-Password",
+      "FORGOT_PASSWORD": "Forget Password ?",
+      "ALREADY_HAVE_ACCOUNT": "Already Have An Account ? ",
+      "LOGIN_LINK": "Login"
+    },
+    "FORGOT_PASSWORD_PAGE": {
+      "HEADLINE": "Forget Password",
+      "LABEL": "Enter Your Email",
+      "EMAIL_PLACEHOLDER": "Email",
+      "SEND_OTP": "Send OTP"
+    },
+    "VERIFY_CODE_PAGE": {
+      "HEADLINE": "OTP CODE",
+      "LABEL": "Enter Your OTP Check Your Email",
+      "CONFIRM": "Confirm",
+      "DIDNT_RECEIVE": "Didn't Receive Verification Code? ",
+      "RESEND": "Resend Code",
+      "SENDING": "Sending..."
+    },
+    "RESET_PASSWORD_PAGE": {
+      "HEADLINE": "Create New Password",
+      "INSTRUCTION": "Make Sure Its 8 Characters Or More",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "SAVE": "Save"
+    }
+  },
+  "ONBOARDING": {
+    "GENDER": {
+      "HEADLINE": "tell us about yourself!",
+      "SUPPORT": "We Need To Know Your Gender",
+      "MALE": "Male",
+      "FEMALE": "Female"
+    },
+    "AGE": {
+      "HEADLINE": "How Old Are You ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "UNIT": "yr"
+    },
+    "WEIGHT": {
+      "HEADLINE": "what is your weight ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "UNIT": "kg"
+    },
+    "HEIGHT": {
+      "HEADLINE": "what is your height ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "UNIT": "cm"
+    },
+    "GOAL": {
+      "HEADLINE": "What Is Your Goal ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "GAIN_WEIGHT": "Gain Weight",
+      "LOSE_WEIGHT": "Lose Weight",
+      "GET_FITTER": "Get Fitter",
+      "GAIN_FLEXIBLE": "Gain More Flexible",
+      "LEARN_BASIC": "Learn The Basic"
+    },
+    "ACTIVITY": {
+      "HEADLINE": "Your Regular Physical Activity Level ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "ROOKIE": "Rookie",
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCE": "Advance",
+      "TRUE_BEAST": "True Beast"
+    }
+  },
+  "HOME": {
+    "WELCOME_BACK": "Welcome Back to Super Fitness",
+    "DASHBOARD": "Dashboard"
+  }
+}

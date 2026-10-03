@@ -1,4 +1,5 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
+import { TranslationService } from '../../../core/services/translation.service';
 import { AUTH_BUTTON_CONFIG, type AuthButtonKind } from '../../utils/auth-button.config';
 
 /**
@@ -14,6 +15,8 @@ import { AUTH_BUTTON_CONFIG, type AuthButtonKind } from '../../utils/auth-button
   styleUrl: './auth-button.scss',
 })
 export class AuthButton {
+  private readonly translationService = inject(TranslationService, { optional: true });
+
   readonly kind = input.required<AuthButtonKind>();
   /** Overrides config label (e.g. i18n or A/B copy). */
   readonly label = input<string>();
@@ -24,6 +27,16 @@ export class AuthButton {
   readonly clicked = output<void>();
 
   protected readonly config = computed(() => AUTH_BUTTON_CONFIG[this.kind()]);
-  protected readonly displayLabel = computed(() => this.label() ?? this.config().label);
+  protected readonly displayLabel = computed(() => {
+    if (this.label()) {
+      return this.label()!;
+    }
+    const key = `AUTH.BUTTONS.${this.kind().toUpperCase()}`;
+    const translated = this.translationService?.translate(key);
+    if (translated && translated !== key) {
+      return translated;
+    }
+    return this.config().label;
+  });
   protected readonly tone = computed(() => this.config().tone);
 }

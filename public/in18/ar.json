@@ -1,0 +1,123 @@
+{
+  "WELCOME": "مرحبًا بك في سوبر فيتنس",
+  "APP_TITLE": "سوبر فيتنس",
+  "LANGUAGE": "اللغة",
+  "ENGLISH": "English",
+  "ARABIC": "العربية",
+  "SWITCH_TO_ARABIC": "العربية",
+  "SWITCH_TO_ENGLISH": "English",
+  "CURRENT_LANGUAGE": "العربية",
+  "COMMON": {
+    "OR": "أو",
+    "SUBMIT": "إرسال",
+    "CANCEL": "إلغاء",
+    "NEXT": "التالي",
+    "PREVIOUS": "السابق",
+    "SAVE": "حفظ",
+    "CONFIRM": "تأكيد",
+    "DONE": "تم",
+    "LOADING": "جارٍ التحميل...",
+    "SENDING": "جارٍ الإرسال...",
+    "RESEND_CODE": "إعادة إرسال الرمز"
+  },
+  "AUTH": {
+    "BUTTONS": {
+      "LOGIN": "تسجيل الدخول",
+      "REGISTER": "إنشاء حساب",
+      "NEXT": "التالي",
+      "PREVIOUS": "السابق",
+      "DONE": "تم",
+      "CONFIRM": "تأكيد",
+      "SENTOTP": "إرسال رمز التحقق"
+    },
+    "LOGIN_PAGE": {
+      "LEAD": "مرحبًا بك",
+      "HEADLINE": "أهلاً بعودتك",
+      "TITLE": "تسجيل الدخول",
+      "EMAIL_PLACEHOLDER": "البريد الإلكتروني",
+      "PASSWORD_PLACEHOLDER": "كلمة المرور",
+      "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+      "NO_ACCOUNT": "ليس لديك حساب بعد؟ ",
+      "REGISTER_LINK": "إنشاء حساب"
+    },
+    "REGISTER_PAGE": {
+      "LEAD": "مرحبًا بك",
+      "HEADLINE": "إنشاء حساب جديد",
+      "TITLE": "إنشاء حساب",
+      "FIRST_NAME": "الاسم الأول",
+      "LAST_NAME": "اسم العائلة",
+      "EMAIL": "البريد الإلكتروني",
+      "PASSWORD": "كلمة المرور",
+      "RE_PASSWORD": "تأكيد كلمة المرور",
+      "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+      "ALREADY_HAVE_ACCOUNT": "هل لديك حساب بالفعل؟ ",
+      "LOGIN_LINK": "تسجيل الدخول"
+    },
+    "FORGOT_PASSWORD_PAGE": {
+      "HEADLINE": "نسيت كلمة المرور",
+      "LABEL": "أدخل بريدك الإلكتروني",
+      "EMAIL_PLACEHOLDER": "البريد الإلكتروني",
+      "SEND_OTP": "إرسال رمز التحقق"
+    },
+    "VERIFY_CODE_PAGE": {
+      "HEADLINE": "رمز التحقق",
+      "LABEL": "أدخل رمز التحقق المرسل إلى بريدك الإلكتروني",
+      "CONFIRM": "تأكيد",
+      "DIDNT_RECEIVE": "لم تستلم رمز التحقق؟ ",
+      "RESEND": "إعادة إرسال الرمز",
+      "SENDING": "جارٍ الإرسال..."
+    },
+    "RESET_PASSWORD_PAGE": {
+      "HEADLINE": "إنشاء كلمة مرور جديدة",
+      "INSTRUCTION": "تأكد من أنها تتكون من 8 أحرف أو أكثر",
+      "PASSWORD": "كلمة المرور الجديدة",
+      "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+      "SAVE": "حفظ"
+    }
+  },
+  "ONBOARDING": {
+    "GENDER": {
+      "HEADLINE": "أخبرنا عن نفسك!",
+      "SUPPORT": "نحتاج إلى معرفة جنسك",
+      "MALE": "ذكر",
+      "FEMALE": "أنثى"
+    },
+    "AGE": {
+      "HEADLINE": "كم عمرك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "UNIT": "سنة"
+    },
+    "WEIGHT": {
+      "HEADLINE": "ما هو وزنك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "UNIT": "كجم"
+    },
+    "HEIGHT": {
+      "HEADLINE": "ما هو طولك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "UNIT": "سم"
+    },
+    "GOAL": {
+      "HEADLINE": "ما هو هدفك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "GAIN_WEIGHT": "زيادة الوزن",
+      "LOSE_WEIGHT": "خسارة الوزن",
+      "GET_FITTER": "تحسين اللياقة",
+      "GAIN_FLEXIBLE": "زيادة المرونة",
+      "LEARN_BASIC": "تعلم الأساسيات"
+    },
+    "ACTIVITY": {
+      "HEADLINE": "مستوى نشاطك البدني المعتاد؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "ROOKIE": "مبتدئ تمامًا",
+      "BEGINNER": "مبتدئ",
+      "INTERMEDIATE": "متوسط",
+      "ADVANCE": "متقدم",
+      "TRUE_BEAST": "محترف رياضي"
+    }
+  },
+  "HOME": {
+    "WELCOME_BACK": "مرحبًا بك مجددًا في سوبر فيتنس",
+    "DASHBOARD": "لوحة التحكم"
+  }
+}

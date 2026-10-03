@@ -3,8 +3,8 @@
 >
   <app-auth-heading
     step="3/6"
-    headline="what is your weight ?"
-    support="This Helps Us Create Your Personalized Plan"
+    [headline]="'ONBOARDING.WEIGHT.HEADLINE' | translate"
+    [support]="'ONBOARDING.WEIGHT.SUPPORT' | translate"
   />
 
   <app-auth-number-picker unit="kg" [min]="20" [max]="300" [(value)]="weight" />

@@ -80,15 +80,15 @@ describe('OnboardingActivityLevel', () => {
   });
 
   it('should have 5 activity level options with API values', () => {
-    expect(component.activityLevels).toHaveLength(5);
-    expect(component.activityLevels.map((opt) => opt.value)).toEqual([
+    expect(component.activityLevels()).toHaveLength(5);
+    expect(component.activityLevels().map((opt) => opt.value)).toEqual([
       'level1',
       'level2',
       'level3',
       'level4',
       'level5',
     ]);
-    expect(component.activityLevels.map((opt) => opt.label)).toEqual([
+    expect(component.activityLevels().map((opt) => opt.label)).toEqual([
       'Rookie',
       'Beginner',
       'Intermediate',

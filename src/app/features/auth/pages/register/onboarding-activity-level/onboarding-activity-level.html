@@ -3,12 +3,12 @@
 >
   <app-auth-heading
     step="6/6"
-    headline="Your Regular Physical Activity Level ?"
-    support="This Helps Us Create Your Personalized Plan"
+    [headline]="'ONBOARDING.ACTIVITY.HEADLINE' | translate"
+    [support]="'ONBOARDING.ACTIVITY.SUPPORT' | translate"
   />
 
   <div class="w-full max-w-[344px]">
-    <app-auth-radio-button [options]="activityLevels" [(value)]="activityLevel" />
+    <app-auth-radio-button [options]="activityLevels()" [(value)]="activityLevel" />
   </div>
 
   <div class="register-activity-level__actions w-full max-w-[344px]">

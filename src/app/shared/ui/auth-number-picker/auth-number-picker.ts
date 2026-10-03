@@ -1,4 +1,5 @@
-import { afterNextRender, Component, computed, input, model, signal } from '@angular/core';
+import { afterNextRender, Component, computed, inject, input, model, signal } from '@angular/core';
+import { TranslationService } from '../../../core/services/translation.service';
 
 export type AuthNumberPickerUnit = 'kg' | 'cm' | 'yr';
 
@@ -25,6 +26,8 @@ const DRAG_CLICK_THRESHOLD_PX = 6;
   styleUrl: './auth-number-picker.scss',
 })
 export class AuthNumberPicker {
+  private readonly translationService = inject(TranslationService, { optional: true });
+
   readonly unit = input.required<AuthNumberPickerUnit>();
   readonly min = input.required<number>();
   readonly max = input.required<number>();
@@ -41,7 +44,15 @@ export class AuthNumberPicker {
     return `translateX(${offset}px)`;
   });
 
-  protected readonly unitLabel = computed(() => UNIT_LABELS[this.unit()]);
+  protected readonly unitLabel = computed(() => {
+    const u = this.unit();
+    if (this.translationService?.isArabic()) {
+      if (u === 'kg') return 'كجم';
+      if (u === 'cm') return 'سم';
+      if (u === 'yr') return 'سنة';
+    }
+    return UNIT_LABELS[u];
+  });
 
   protected readonly windowNumbers = computed(() => {
     const min = this.min();

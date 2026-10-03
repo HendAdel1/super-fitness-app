@@ -8,10 +8,12 @@ import { AuthHeading } from '../../../../shared/ui/auth-heading/auth-heading';
 import { AuthInput } from '../../../../shared/ui/auth-input/auth-input';
 import { ForgotPasswordService } from '../../services/forgot-password/forgot-password.service';
 
+import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-forgot-password',
   host: { class: 'block w-full max-w-[486px]' },
-  imports: [ReactiveFormsModule, AuthHeading, AuthInput, AuthButton, AuthError],
+  imports: [ReactiveFormsModule, AuthHeading, AuthInput, AuthButton, AuthError, TranslatePipe],
   templateUrl: './forgot-password.html',
   styleUrl: './forgot-password.scss',
 })

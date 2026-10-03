@@ -5,9 +5,11 @@ import { AuthNumberPicker } from '../../../../../shared/ui/auth-number-picker/au
 import { RegisterService } from '../../../services/register/register.service';
 import { Router } from '@angular/router';
 
+import { TranslatePipe } from '../../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-height',
-  imports: [AuthHeading, AuthNumberPicker, AuthButton],
+  imports: [AuthHeading, AuthNumberPicker, AuthButton, TranslatePipe],
   templateUrl: './height.html',
   styleUrl: './height.scss',
 })

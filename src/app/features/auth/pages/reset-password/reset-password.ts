@@ -10,10 +10,12 @@ import { authPasswordsMatchValidator } from '../../../../shared/utils/auth-passw
 import { strongPasswordValidator } from '../../validators/auth.validators';
 import { ForgotPasswordService } from '../../services/forgot-password/forgot-password.service';
 
+import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-reset-password',
   host: { class: 'block w-full max-w-[486px]' },
-  imports: [ReactiveFormsModule, AuthHeading, AuthInput, AuthButton, AuthError],
+  imports: [ReactiveFormsModule, AuthHeading, AuthInput, AuthButton, AuthError, TranslatePipe],
   templateUrl: './reset-password.html',
   styleUrl: './reset-password.scss',
 })

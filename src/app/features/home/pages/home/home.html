@@ -1,1 +1,10 @@
-<section class="min-h-dvh bg-ink"></section>
+<section class="relative min-h-dvh bg-ink p-6">
+  <header class="border-b border-metal/20 pb-4">
+    <h1 class="text-xl font-bold font-baloo text-white">{{ 'HOME.WELCOME_BACK' | translate }}</h1>
+  </header>
+
+  <!-- Floating Preferences Widget (Language & Theme) -->
+  <aside class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50">
+    <app-language-switcher />
+  </aside>
+</section>

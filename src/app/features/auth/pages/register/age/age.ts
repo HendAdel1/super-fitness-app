@@ -5,9 +5,11 @@ import { AuthHeading } from '../../../../../shared/ui/auth-heading/auth-heading'
 import { AuthNumberPicker } from '../../../../../shared/ui/auth-number-picker/auth-number-picker';
 import { RegisterService } from '../../../services/register/register.service';
 
+import { TranslatePipe } from '../../../../../shared/pipes/translate.pipe';
+
 @Component({
   selector: 'app-register-age',
-  imports: [AuthHeading, AuthNumberPicker, AuthButton],
+  imports: [AuthHeading, AuthNumberPicker, AuthButton, TranslatePipe],
   templateUrl: './age.html',
   styleUrl: './age.scss',
 })

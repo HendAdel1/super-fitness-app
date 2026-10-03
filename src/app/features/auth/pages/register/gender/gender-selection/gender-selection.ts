@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { RegisterService } from '../../../../services/register/register.service';
 
+import { TranslatePipe } from '../../../../../../shared/pipes/translate.pipe';
+
 type Gender = 'male' | 'female' | null;
 
 @Component({
   selector: 'app-gender-selection',
-  imports: [AuthHeading, AuthButton,CommonModule],
+  imports: [AuthHeading, AuthButton, CommonModule, TranslatePipe],
   templateUrl: './gender-selection.html',
   styleUrl: './gender-selection.scss',
 })
