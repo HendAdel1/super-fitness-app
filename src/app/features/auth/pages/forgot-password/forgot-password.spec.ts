@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { of, throwError } from 'rxjs';
+import { of, Subject, throwError } from 'rxjs';
 import { ForgotPasswordService } from '../../services/forgot-password/forgot-password.service';
 import { ForgotPassword } from './forgot-password';
 
@@ -12,6 +12,7 @@ describe('ForgotPassword', () => {
     forgotPassword: ReturnType<typeof vi.fn>;
     setEmail: ReturnType<typeof vi.fn>;
     readError: ReturnType<typeof vi.fn>;
+    clearRecoveryState: ReturnType<typeof vi.fn>;
   };
   let router: { navigateByUrl: ReturnType<typeof vi.fn> };
 
@@ -21,6 +22,7 @@ describe('ForgotPassword', () => {
       forgotPassword: vi.fn(),
       setEmail: vi.fn(),
       readError: vi.fn().mockReturnValue('User not found'),
+      clearRecoveryState: vi.fn(),
     };
     router = {
       navigateByUrl: vi.fn().mockResolvedValue(true),
@@ -75,5 +77,17 @@ describe('ForgotPassword', () => {
     const errorEl = fixture.nativeElement.querySelector('app-auth-error');
     expect(errorEl).not.toBeNull();
     expect(forgotPasswordService.readError).toHaveBeenCalled();
+  });
+
+  it('disables submit button while submitting', () => {
+    forgotPasswordService.forgotPassword.mockReturnValue(new Subject());
+    component.form.controls.email.setValue('user@example.com');
+
+    const form = fixture.nativeElement.querySelector('form') as HTMLFormElement;
+    form.dispatchEvent(new Event('submit'));
+    fixture.detectChanges();
+
+    const button = fixture.nativeElement.querySelector('button') as HTMLButtonElement;
+    expect(button.disabled).toBe(true);
   });
 });

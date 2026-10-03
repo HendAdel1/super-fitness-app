@@ -23,7 +23,7 @@ export class ForgotPassword {
   private readonly destroyRef = inject(DestroyRef);
 
   readonly form = new FormGroup({
-    email: new FormControl(this.forgotPasswordService.recoveryEmail() ?? '', {
+    email: new FormControl('', {
       nonNullable: true,
       validators: [Validators.required, Validators.email],
     }),
@@ -33,6 +33,8 @@ export class ForgotPassword {
   protected readonly isSubmitting = signal(false);
 
   constructor() {
+    this.forgotPasswordService.clearRecoveryState();
+
     this.form.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
       if (this.errorMessage()) {
         this.errorMessage.set(null);

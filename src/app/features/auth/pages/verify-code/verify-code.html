@@ -23,7 +23,7 @@
     }
 
     <div class="verify-code__cta flex flex-col gap-3">
-      <app-auth-button kind="confirm" (clicked)="onConfirm()" />
+      <app-auth-button kind="confirm" [disabled]="isSubmitting()" (clicked)="onConfirm()" />
 
       <app-auth-link>
         <span text>{{ 'AUTH.VERIFY_CODE_PAGE.DIDNT_RECEIVE' | translate }}</span>
