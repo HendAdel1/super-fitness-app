@@ -1,4 +1,7 @@
-<div class="auth-heading__step relative mb-1 flex size-16 items-center justify-center" [attr.aria-label]="progress().ariaLabel">
+<div
+  class="auth-heading__step relative mb-1 flex size-16 items-center justify-center"
+  [attr.aria-label]="progress().ariaLabel"
+>
   @if (progress().showRing && progress().ringDasharray) {
     <svg
       class="auth-heading__step-ring absolute inset-0 size-full text-orange-500"

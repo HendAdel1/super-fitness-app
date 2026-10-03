@@ -15,4 +15,14 @@ describe('AuthHeadingStep', () => {
     fixture.detectChanges();
     expect(fixture.componentInstance).toBeTruthy();
   });
+
+  it('renders step label text with correct class', () => {
+    const fixture = TestBed.createComponent(AuthHeadingStep);
+    fixture.componentRef.setInput('progress', resolveAuthHeadingStep('2/6'));
+    fixture.detectChanges();
+
+    const label = fixture.nativeElement.querySelector('.auth-heading__step-label');
+    expect(label).toBeTruthy();
+    expect(label.textContent?.trim()).toBe('2/6');
+  });
 });
