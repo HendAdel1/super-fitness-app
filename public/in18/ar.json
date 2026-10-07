@@ -119,5 +119,13 @@
   "HOME": {
     "WELCOME_BACK": "مرحبًا بك مجددًا في سوبر فيتنس",
     "DASHBOARD": "لوحة التحكم"
+  },
+  "CHATBOT": {
+    "TAP_TO_CLOSE": "انقر للإغلاق",
+    "HEY_ASK_ME": "اسألني الآن",
+    "SMART_COACH": "المدرب الذكي",
+    "PREVIOUS_CONVERSATIONS": "المحادثات السابقة",
+    "INPUT_PLACEHOLDER": "اسألني أي شيء",
+    "NEW_CONVERSATION": "محادثة جديدة"
   }
 }

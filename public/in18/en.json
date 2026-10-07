@@ -119,5 +119,13 @@
   "HOME": {
     "WELCOME_BACK": "Welcome Back to Super Fitness",
     "DASHBOARD": "Dashboard"
+  },
+  "CHATBOT": {
+    "TAP_TO_CLOSE": "Tap To Close",
+    "HEY_ASK_ME": "Hey Ask Me",
+    "SMART_COACH": "Smart Coach",
+    "PREVIOUS_CONVERSATIONS": "Previous Conversations",
+    "INPUT_PLACEHOLDER": "Ask Me Any Things",
+    "NEW_CONVERSATION": "New Conversation"
   }
 }
