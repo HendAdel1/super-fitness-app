@@ -119,5 +119,16 @@
   "HOME": {
     "WELCOME_BACK": "مرحبًا بك مجددًا في سوبر فيتنس",
     "DASHBOARD": "لوحة التحكم"
+  },
+  "FOOTER": {
+    "TAGLINE_LINE1": "ادفع بقوة، واصل إلى الأمام. رحلتك",
+    "TAGLINE_LINE2": "اللياقة تبدأ اليوم!",
+    "CONTACT_US": "تواصل معنا",
+    "GYM_TIMING": "مواعيد النادي",
+    "LOCATION": "موقعنا",
+    "HOURS_WEEKDAYS": "الإثنين - الجمعة : 08:00 ص - 10:00 م",
+    "HOURS_WEEKEND": "السبت - الأحد : 08:00 ص - 09:00 م",
+    "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
+    "LOCATION_LINE2": "Dakota 83475"
   }
 }
