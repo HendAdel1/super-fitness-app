@@ -123,7 +123,10 @@
   "SECTION_TITLE": {
     "HEALTHY": {
       "WATERMARK": "HEALTHY",
-      "LABEL": "Healthy Nutritions"
+      "LABEL": "Healthy Nutritions",
+      "HEADING_PART1": "FUEL YOUR FITNESS JOURNEY WITH CUSTOMIZED",
+      "HEADING_HIGHLIGHT": "MEAL PLANS",
+      "HEADING_PART2": "FOR YOU"
     },
     "WHY_US": {
       "WATERMARK": "WHY US",
