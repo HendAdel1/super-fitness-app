@@ -186,5 +186,14 @@
     "CHATBOT_BTN": "Hey Ask Me",
     "TRAINER_ALT": "Professional Fitness Trainer",
     "CHATBOT_ALT": "Fitness AI Assistant Robot"
+  },
+  "MEAL_CARD": {
+    "READ_MORE": "Read More",
+    "BREAKFAST": "BREAKFAST",
+    "LUNCH": "LUNCH",
+    "DINNER": "DINNER"
+  },
+  "REUSABLE_CARD": {
+    "READ_MORE": "Read More"
   }
 }

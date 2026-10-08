@@ -186,5 +186,14 @@
     "CHATBOT_BTN": "تحدث معي",
     "TRAINER_ALT": "مدرب لياقة بدنية محترف",
     "CHATBOT_ALT": "المساعد الآلي الذكي"
+  },
+  "MEAL_CARD": {
+    "READ_MORE": "اقرأ المزيد",
+    "BREAKFAST": "الإفطار",
+    "LUNCH": "الغداء",
+    "DINNER": "العشاء"
+  },
+  "REUSABLE_CARD": {
+    "READ_MORE": "اقرأ المزيد"
   }
 }
