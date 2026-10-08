@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadChildren: () => import('./features/home/home.routes').then((m) => m.homeRoutes),
   },
   {
+    path: 'about',
+    loadChildren: () => import('./features/about/about.routes').then((m) => m.aboutRoutes),
+  },
+  {
     path: 'auth',
     canActivate: [guestGuard],
     loadChildren: () => import('./features/auth/auth.routes').then((m) => m.authRoutes),

@@ -101,7 +101,7 @@ describe('Hero', () => {
     expect(primaryBtn).toBeTruthy();
     expect(primaryBtn.textContent).toContain('Get Started');
     expect(primaryBtn.classList.contains('bg-orange-500')).toBe(true);
-    expect(primaryBtn.querySelector('.hero__btn-arrow svg')).toBeTruthy();
+    expect(primaryBtn.querySelector('.hero__btn-arrow img')).toBeTruthy();
 
     expect(secondaryBtn).toBeTruthy();
     expect(secondaryBtn.textContent).toContain('Explore More');

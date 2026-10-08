@@ -84,11 +84,11 @@ describe('Navbar', () => {
 
       expect(loginBtn).toBeTruthy();
       expect(loginBtn.textContent).toContain('LOGIN');
-      expect(loginBtn.querySelector('.navbar__btn-arrow svg')).toBeTruthy();
+      expect(loginBtn.querySelector('.navbar__btn-arrow img')).toBeTruthy();
 
       expect(signupBtn).toBeTruthy();
       expect(signupBtn.textContent).toContain('SIGN UP');
-      expect(signupBtn.querySelector('.navbar__btn-arrow svg')).toBeTruthy();
+      expect(signupBtn.querySelector('.navbar__btn-arrow img')).toBeTruthy();
 
       expect(avatarBtn).toBeNull();
     });

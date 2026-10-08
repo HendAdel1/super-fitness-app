@@ -36,20 +36,9 @@
         (click)="onSelectConversation(conversation)"
       >
         <span class="previous-conversations__item-title">{{ conversation.title }}</span>
-        <svg
-          class="previous-conversations__item-arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#ff4100"
-          stroke-width="2.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
+        <span class="previous-conversations__item-arrow">
+          <app-right-arrow-icon sizeClass="size-4 max-w-[20px]" />
+        </span>
       </button>
     } @empty {
       <p class="previous-conversations__empty">No previous conversations yet.</p>

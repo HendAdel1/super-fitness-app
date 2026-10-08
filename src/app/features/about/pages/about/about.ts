@@ -1,15 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Navbar } from '../../../../layout/main/navbar/navbar';
-import { Hero } from '../../components/hero/hero';
 import { LanguageSwitcher } from '../../../../shared/components/language-switcher/language-switcher';
-import { MarqueeBanner } from '../../../../shared/components/marquee-banner/marquee-banner';
 import { AboutUsSection } from '../../../../shared/sections/about-us-section/about-us-section';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-about',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Navbar, Hero, LanguageSwitcher, MarqueeBanner, AboutUsSection],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  imports: [Navbar, AboutUsSection, LanguageSwitcher],
+  templateUrl: './about.html',
 })
-export class Home {}
+export class About {}
