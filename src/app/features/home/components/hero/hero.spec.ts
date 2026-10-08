@@ -60,13 +60,12 @@ describe('Hero', () => {
     const headline = fixture.nativeElement.querySelector('.hero__headline') as HTMLElement;
     expect(headline).toBeTruthy();
 
-    const highlights = headline.querySelectorAll('.hero__highlight');
-    expect(highlights.length).toBe(2);
-    expect(highlights[0].textContent?.trim()).toBe('STAND');
-    expect(highlights[0].classList.contains('text-orange-500')).toBe(true);
-
-    expect(highlights[1].textContent?.trim()).toBe('ALMOST');
-    expect(highlights[1].classList.contains('text-orange-500')).toBe(true);
+    const highlights = Array.from(headline.querySelectorAll('.hero__highlight'));
+    expect(highlights.length).toBeGreaterThanOrEqual(2);
+    const highlightTexts = highlights.map((h) => (h as HTMLElement).textContent?.trim()).join(' ');
+    expect(highlightTexts).toContain('STAND');
+    expect(highlightTexts).toContain('ALMOST');
+    highlights.forEach((h) => expect((h as HTMLElement).classList.contains('text-orange-500')).toBe(true));
   });
 
   it('should render motivational subtext bordered by vertical orange line', () => {

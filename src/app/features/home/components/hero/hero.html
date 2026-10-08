@@ -8,12 +8,24 @@
     <div class="lg:col-span-7 flex flex-col justify-center z-10 pt-4 lg:pt-0">
       <!-- Headline with STAND and ALMOST highlighted in orange -->
       <h1 class="hero__headline font-baloo font-extrabold uppercase tracking-tight text-3xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.08] mb-6">
-        <span class="block text-white hero__headline-text">
+        <!-- Desktop / Tablet layout (sm and up) -->
+        <span class="hidden sm:block text-white hero__headline-text">
           {{ 'HERO.TITLE_PART1' | translate }}
           <span class="hero__highlight text-orange-500">{{ 'HERO.STAND' | translate }}</span>
         </span>
-        <span class="block text-white hero__headline-text">
+        <span class="hidden sm:block text-white hero__headline-text">
           <span class="hero__highlight text-orange-500">{{ 'HERO.ALMOST' | translate }}</span>
+          {{ 'HERO.TITLE_PART2' | translate }}
+        </span>
+
+        <!-- Mobile layout (<sm) matching mobile mockup -->
+        <span class="block sm:hidden text-white hero__headline-text">
+          {{ 'HERO.TITLE_PART1' | translate }}
+        </span>
+        <span class="block sm:hidden hero__highlight text-orange-500">
+          {{ 'HERO.STAND' | translate }} {{ 'HERO.ALMOST' | translate }}
+        </span>
+        <span class="block sm:hidden text-white hero__headline-text">
           {{ 'HERO.TITLE_PART2' | translate }}
         </span>
       </h1>
@@ -25,8 +37,8 @@
         </p>
       </div>
 
-      <!-- Three Statistical Figures -->
-      <div class="hero__stats flex flex-wrap items-center gap-6 sm:gap-10 lg:gap-12 mb-8 sm:mb-10">
+      <!-- Three Statistical Figures (Stacked vertically on mobile, horizontal on tablet/desktop) -->
+      <div class="hero__stats flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 sm:gap-10 lg:gap-12 mb-8 sm:mb-10">
         @for (stat of stats; track stat.labelKey) {
           <div class="hero__stat-item flex flex-col">
             <span class="hero__stat-value font-baloo font-bold text-2xl sm:text-3xl text-white">
@@ -39,29 +51,29 @@
         }
       </div>
 
-      <!-- Action Buttons (Solid Get Started & Outlined Explore More with Directional Arrows) -->
-      <div class="hero__actions flex flex-wrap items-center gap-4 sm:gap-6">
+      <!-- Action Buttons (Side by side on mobile and desktop) -->
+      <div class="hero__actions flex flex-row items-center gap-3 sm:gap-6">
         <a
           routerLink="/auth/register"
-          class="hero__btn hero__btn--primary inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 sm:px-8 py-3 text-sm sm:text-base font-baloo font-bold tracking-wider text-white uppercase shadow-md transition-all duration-200 hover:bg-orange-600 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+          class="hero__btn hero__btn--primary inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-base font-baloo font-bold tracking-wider text-white uppercase shadow-md transition-all duration-200 hover:bg-orange-600 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 shrink-0"
         >
           <span>{{ 'HERO.GET_STARTED' | translate }}</span>
           <span
-            class="hero__btn-arrow size-6 rounded-full border border-white flex items-center justify-center text-white shrink-0"
+            class="hero__btn-arrow size-5 sm:size-6 rounded-full border border-white flex items-center justify-center text-white shrink-0"
           >
-            <svg lucideArrowUpRight class="size-3.5 stroke-[2.5] rtl:-scale-x-100" aria-hidden="true"></svg>
+            <svg lucideArrowUpRight class="size-3 sm:size-3.5 stroke-[2.5] rtl:-scale-x-100" aria-hidden="true"></svg>
           </span>
         </a>
 
         <a
           routerLink="/home"
-          class="hero__btn hero__btn--secondary inline-flex items-center gap-2 rounded-full border-2 border-orange-500 px-6 sm:px-8 py-3 text-sm sm:text-base font-baloo font-bold tracking-wider text-orange-500 uppercase transition-all duration-200 hover:bg-orange-500/10 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+          class="hero__btn hero__btn--secondary inline-flex items-center gap-2 rounded-full border-2 border-orange-500 px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-base font-baloo font-bold tracking-wider text-orange-500 uppercase transition-all duration-200 hover:bg-orange-500/10 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 shrink-0"
         >
           <span>{{ 'HERO.EXPLORE_MORE' | translate }}</span>
           <span
-            class="hero__btn-arrow size-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0"
+            class="hero__btn-arrow size-5 sm:size-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0"
           >
-            <svg lucideArrowUpRight class="size-3.5 stroke-[2.5] rtl:-scale-x-100" aria-hidden="true"></svg>
+            <svg lucideArrowUpRight class="size-3 sm:size-3.5 stroke-[2.5] rtl:-scale-x-100" aria-hidden="true"></svg>
           </span>
         </a>
       </div>
