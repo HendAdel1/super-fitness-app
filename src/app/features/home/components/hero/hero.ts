@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LucideArrowUpRight } from '@lucide/angular';
+import { RightArrowIcon } from '../../../../shared/ui/right-arrow-icon/right-arrow-icon';
 import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 
 export interface HeroStat {
@@ -11,7 +11,7 @@ export interface HeroStat {
 @Component({
   selector: 'app-hero',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, TranslatePipe, LucideArrowUpRight],
+  imports: [RouterLink, TranslatePipe, RightArrowIcon],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })

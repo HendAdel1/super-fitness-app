@@ -3,12 +3,13 @@ import { ChangeDetectionStrategy, Component, inject, output } from '@angular/cor
 import { ChatBotService } from '../../chat-bot.service';
 import type { Conversation } from '../../chat-bot.model';
 import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
+import { RightArrowIcon } from '../../../../shared/ui/right-arrow-icon/right-arrow-icon';
 
 @Component({
   selector: 'app-previous-conversations',
   templateUrl: './previous-conversations.html',
   styleUrl: './previous-conversations.scss',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, RightArrowIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PreviousConversations {

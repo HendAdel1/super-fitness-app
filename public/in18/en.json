@@ -141,6 +141,34 @@
       "LABEL": "About Us"
     }
   },
+  "ABOUT": {
+    "HEADLINE_BEFORE": "EMPOWERING YOU TO ACHIEVE",
+    "HEADLINE_ACCENT": "YOUR FITNESS",
+    "HEADLINE_AFTER": "GOALS",
+    "INTRO": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
+    "GET_STARTED": "Get Started",
+    "IMAGE_ALT_1": "Fitness trainer holding a kettlebell",
+    "IMAGE_ALT_2": "Member training in the gym",
+    "IMAGE_ALT_3": "Personal trainer portrait",
+    "FEATURES": {
+      "TRAINER": {
+        "TITLE": "Personal Trainer",
+        "DESCRIPTION": "Achieve your fitness goals with the guidance of our certified trainers."
+      },
+      "CARDIO": {
+        "TITLE": "Cardio Programs",
+        "DESCRIPTION": "From steady-state runs to interval sprints, our treadmill programs."
+      },
+      "EQUIPMENT": {
+        "TITLE": "Quality Equipment",
+        "DESCRIPTION": "Our gym is equipped with the latest cardio & strength machines."
+      },
+      "NUTRITION": {
+        "TITLE": "Healthy Nutritions",
+        "DESCRIPTION": "Fuel your fitness journey with customized meal plans for you."
+      }
+    }
+  },
   "FOOTER": {
     "TAGLINE_LINE1": "Push harder, go further. Your",
     "TAGLINE_LINE2": "fitness journey starts today!",
