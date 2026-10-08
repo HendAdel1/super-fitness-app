@@ -147,55 +147,44 @@
     "HOURS_WEEKDAYS": "الإثنين - الجمعة : 08:00 ص - 10:00 م",
     "HOURS_WEEKEND": "السبت - الأحد : 08:00 ص - 09:00 م",
     "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
-    "LOCATION_LINE2": "Dakota 83475",
-    "CHATBOT": {
-      "TAP_TO_CLOSE": "انقر للإغلاق",
-      "HEY_ASK_ME": "اسألني الآن",
-      "SMART_COACH": "المدرب الذكي",
-      "PREVIOUS_CONVERSATIONS": "المحادثات السابقة",
-      "INPUT_PLACEHOLDER": "اسألني أي شيء",
-      "NEW_CONVERSATION": "محادثة جديدة",
-      "FOOTER": {
-        "TAGLINE_LINE1": "ادفع بقوة، واصل إلى الأمام. رحلتك",
-        "TAGLINE_LINE2": "اللياقة تبدأ اليوم!",
-        "CONTACT_US": "تواصل معنا",
-        "GYM_TIMING": "مواعيد النادي",
-        "LOCATION": "موقعنا",
-        "HOURS_WEEKDAYS": "الإثنين - الجمعة : 08:00 ص - 10:00 م",
-        "HOURS_WEEKEND": "السبت - الأحد : 08:00 ص - 09:00 م",
-        "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
-        "LOCATION_LINE2": "Dakota 83475"
-      }
-    },
-    "NAV": {
-      "HOME": "الرئيسية",
-      "ABOUT": "من نحن",
-      "CLASSES": "التمارين",
-      "HEALTHY": "صحي",
-      "LOGIN": "تسجيل الدخول",
-      "SIGN_UP": "إنشاء حساب",
-      "LOGOUT": "تسجيل الخروج",
-      "PROFILE": "الملف الشخصي",
-      "USER_MENU": "قائمة المستخدم",
-      "TOGGLE_MENU": "تبديل القائمة"
-    },
-    "HERO": {
-      "TITLE_PART1": "جسدك يمكنه",
-      "STAND": "تحمل",
-      "ALMOST": "أي شيء",
-      "TITLE_PART2": "تقريبًا",
-      "SUBTEXT": "عقلك هو ما يحتاج إلى الإقناع. تجاوز حدودك، والتزم بالهدف، وشاهد كيف يتحول جسدك إلى قوة هائلة من الصلابة والمرونة. ابدأ رحلتك اليوم واكتشف قدراتك الحقيقية!",
-      "MEMBERS_COUNT": "1200+",
-      "MEMBERS_LABEL": "عضو نشط",
-      "TRAINERS_COUNT": "12+",
-      "TRAINERS_LABEL": "مدرب معتمد",
-      "EXPERIENCE_COUNT": "20+",
-      "EXPERIENCE_LABEL": "سنوات خبرة",
-      "GET_STARTED": "ابدأ الآن",
-      "EXPLORE_MORE": "استكشف المزيد",
-      "CHATBOT_BTN": "تحدث معي",
-      "TRAINER_ALT": "مدرب لياقة بدنية محترف",
-      "CHATBOT_ALT": "المساعد الآلي الذكي"
-    }
+    "LOCATION_LINE2": "Dakota 83475"
+  },
+  "CHATBOT": {
+    "TAP_TO_CLOSE": "انقر للإغلاق",
+    "HEY_ASK_ME": "اسألني الآن",
+    "SMART_COACH": "المدرب الذكي",
+    "PREVIOUS_CONVERSATIONS": "المحادثات السابقة",
+    "INPUT_PLACEHOLDER": "اسألني أي شيء",
+    "NEW_CONVERSATION": "محادثة جديدة"
+  },
+  "NAV": {
+    "HOME": "الرئيسية",
+    "ABOUT": "من نحن",
+    "CLASSES": "التمارين",
+    "HEALTHY": "صحي",
+    "LOGIN": "تسجيل الدخول",
+    "SIGN_UP": "إنشاء حساب",
+    "LOGOUT": "تسجيل الخروج",
+    "PROFILE": "الملف الشخصي",
+    "USER_MENU": "قائمة المستخدم",
+    "TOGGLE_MENU": "تبديل القائمة"
+  },
+  "HERO": {
+    "TITLE_PART1": "جسدك يمكنه",
+    "STAND": "تحمل",
+    "ALMOST": "أي شيء",
+    "TITLE_PART2": "تقريبًا",
+    "SUBTEXT": "عقلك هو ما يحتاج إلى الإقناع. تجاوز حدودك، والتزم بالهدف، وشاهد كيف يتحول جسدك إلى قوة هائلة من الصلابة والمرونة. ابدأ رحلتك اليوم واكتشف قدراتك الحقيقية!",
+    "MEMBERS_COUNT": "1200+",
+    "MEMBERS_LABEL": "عضو نشط",
+    "TRAINERS_COUNT": "12+",
+    "TRAINERS_LABEL": "مدرب معتمد",
+    "EXPERIENCE_COUNT": "20+",
+    "EXPERIENCE_LABEL": "سنوات خبرة",
+    "GET_STARTED": "ابدأ الآن",
+    "EXPLORE_MORE": "استكشف المزيد",
+    "CHATBOT_BTN": "تحدث معي",
+    "TRAINER_ALT": "مدرب لياقة بدنية محترف",
+    "CHATBOT_ALT": "المساعد الآلي الذكي"
   }
 }
