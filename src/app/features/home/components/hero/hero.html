@@ -82,24 +82,4 @@
       </div>
     </div>
   </div>
-
-  <!-- Floating 'Hey Ask Me' Chatbot Button with Robot Icon in Bottom Right Corner -->
-  <aside class="fixed bottom-6 end-6 z-40 group">
-    <button
-      type="button"
-      (click)="onChatbotClick()"
-      class="hero__chatbot-btn relative flex items-center gap-2.5 rounded-full bg-orange-500 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-baloo font-bold text-white shadow-[0_0_25px_rgba(255,65,0,0.55)] transition-all duration-300 hover:scale-105 hover:bg-orange-600 hover:shadow-[0_0_35px_rgba(255,65,0,0.75)] active:scale-95 cursor-pointer"
-      [attr.aria-label]="'HERO.CHATBOT_BTN' | translate"
-    >
-      <!-- Robot Avatar sitting atop button -->
-      <img
-        src="images/chatbot.webp"
-        [alt]="'HERO.CHATBOT_ALT' | translate"
-        class="hero__chatbot-robot absolute -top-9 -start-3 sm:-top-11 sm:-start-4 w-12 sm:w-14 h-auto drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
-        width="56"
-        height="56"
-      />
-      <span class="ps-5 sm:ps-6">{{ 'HERO.CHATBOT_BTN' | translate }}</span>
-    </button>
-  </aside>
 </section>

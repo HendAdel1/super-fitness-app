@@ -33,15 +33,6 @@
   &__stat-label {
     color: var(--color-metal, #6d6d6d);
   }
-
-  &__chatbot-btn {
-    background-color: var(--color-orange-500, #ff4100);
-    box-shadow: 0 0 25px rgba(255, 65, 0, 0.55);
-
-    &:hover {
-      box-shadow: 0 0 35px rgba(255, 65, 0, 0.8);
-    }
-  }
 }
 
 // =============================================================================

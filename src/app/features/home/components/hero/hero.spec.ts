@@ -115,25 +115,4 @@ describe('Hero', () => {
     expect(trainerImg).toBeTruthy();
     expect(trainerImg.getAttribute('src')).toContain('images/hero.webp');
   });
-
-  it('should render floating Hey Ask Me chatbot button with robot icon in bottom right', () => {
-    const chatbotBtn = fixture.nativeElement.querySelector('.hero__chatbot-btn') as HTMLButtonElement;
-    expect(chatbotBtn).toBeTruthy();
-    expect(chatbotBtn.textContent).toContain('Hey Ask Me');
-    expect(chatbotBtn.classList.contains('bg-orange-500')).toBe(true);
-
-    const robotImg = chatbotBtn.querySelector('.hero__chatbot-robot') as HTMLImageElement;
-    expect(robotImg).toBeTruthy();
-    expect(robotImg.getAttribute('src')).toContain('images/chatbot.webp');
-  });
-
-  it('should emit chatbotClicked when chatbot button is clicked', () => {
-    const spy = vi.fn();
-    component.chatbotClicked.subscribe(spy);
-
-    const chatbotBtn = fixture.nativeElement.querySelector('.hero__chatbot-btn') as HTMLButtonElement;
-    chatbotBtn.click();
-
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
 });
