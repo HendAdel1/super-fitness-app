@@ -120,6 +120,7 @@
     "WELCOME_BACK": "Welcome Back to Super Fitness",
     "DASHBOARD": "Dashboard"
   },
+<<<<<<< HEAD
   "SECTION_TITLE": {
     "HEALTHY": {
       "WATERMARK": "HEALTHY",
@@ -148,5 +149,54 @@
     "HOURS_WEEKEND": "Sat - Sun : 08:00 AM - 09:00 PM",
     "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
     "LOCATION_LINE2": "Dakota 83475"
+=======
+  "CHATBOT": {
+    "TAP_TO_CLOSE": "Tap To Close",
+    "HEY_ASK_ME": "Hey Ask Me",
+    "SMART_COACH": "Smart Coach",
+    "PREVIOUS_CONVERSATIONS": "Previous Conversations",
+    "INPUT_PLACEHOLDER": "Ask Me Any Things",
+    "NEW_CONVERSATION": "New Conversation",
+    "FOOTER": {
+      "TAGLINE_LINE1": "Push harder, go further. Your",
+      "TAGLINE_LINE2": "fitness journey starts today!",
+      "CONTACT_US": "Contact Us",
+      "GYM_TIMING": "Our Gym Timing",
+      "LOCATION": "Our Location",
+      "HOURS_WEEKDAYS": "Mon - Fri : 08:00 AM - 10:00 PM",
+      "HOURS_WEEKEND": "Sat - Sun : 08:00 AM - 09:00 PM",
+      "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
+      "LOCATION_LINE2": "Dakota 83475"
+    }
+  },
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "CLASSES": "Classes",
+    "HEALTHY": "Healthy",
+    "LOGIN": "LOGIN",
+    "SIGN_UP": "SIGN UP",
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile",
+    "USER_MENU": "User Menu",
+    "TOGGLE_MENU": "Toggle Navigation Menu"  },
+  "HERO": {
+    "TITLE_PART1": "YOUR BODY CAN",
+    "STAND": "STAND",
+    "ALMOST": "ALMOST",
+    "TITLE_PART2": "ANYTHING",
+    "SUBTEXT": "It's your mind that needs convincing. Push past your limits, stay committed, and watch as your body transform into powerhouse of strength and resilience. Start your journey today & truly capable of!",
+    "MEMBERS_COUNT": "1200+",
+    "MEMBERS_LABEL": "Active Members",
+    "TRAINERS_COUNT": "12+",
+    "TRAINERS_LABEL": "Certified Trainers",
+    "EXPERIENCE_COUNT": "20+",
+    "EXPERIENCE_LABEL": "Year Of Experience",
+    "GET_STARTED": "Get Started",
+    "EXPLORE_MORE": "Explore More",
+    "CHATBOT_BTN": "Hey Ask Me",
+    "TRAINER_ALT": "Professional Fitness Trainer",
+    "CHATBOT_ALT": "Fitness AI Assistant Robot"
+>>>>>>> 25f0cb8b655436342cbcbd1dfa09214e59609bb8
   }
 }

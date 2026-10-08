@@ -10,7 +10,9 @@ html.light {
   body {
     background-color: #f8fafc;
     color: #0f172a;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   .bg-ink {
@@ -33,7 +35,11 @@ html.light {
     @media (min-width: 1024px) {
       border-right: 1px solid rgba(226, 232, 240, 0.9) !important;
       box-shadow: 15px 0 45px -20px rgba(15, 23, 42, 0.06) !important;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(241, 245, 249, 0.25) 100%) !important;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(241, 245, 249, 0.25) 100%
+      ) !important;
     }
   }
 
@@ -227,10 +233,13 @@ html.light {
     }
 
     button:not(.bg-\[\#ff4100\]) {
-      color: #64748b !important;
+      background-color: #f1f5f9 !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #0f172a !important;
 
       &:hover {
-        color: #0f172a !important;
+        background-color: #e2e8f0 !important;
+        color: var(--color-orange-500, #ff4100) !important;
       }
     }
   }
@@ -238,5 +247,150 @@ html.light {
   // Home Page
   header.border-metal\/20 {
     border-color: #e2e8f0 !important;
+  }
+
+  // ===========================================================================
+  // Smart Coach ChatBot (Light Mode)
+  // ===========================================================================
+  .chat-window {
+    box-shadow:
+      0 20px 48px -12px rgba(15, 23, 42, 0.2),
+      0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+
+    &__bg {
+      opacity: 0.45 !important;
+
+      &::after {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(248, 250, 252, 0.35) 40%,
+          rgba(255, 255, 255, 0.5) 100%
+        ) !important;
+      }
+    }
+
+    &__title {
+      color: #0f172a !important;
+    }
+
+    &__welcome-text {
+      color: #475569 !important;
+    }
+
+    &__backdrop {
+      background: rgba(15, 23, 42, 0.35) !important;
+    }
+
+    &__typing-dot {
+      background: #ff4100 !important;
+    }
+
+    &__input-area {
+      border-top-color: #e2e8f0 !important;
+    }
+
+    &__input-wrapper {
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+
+      &:focus-within {
+        border-color: #ff4100 !important;
+        box-shadow: 0 0 0 3px rgba(255, 65, 0, 0.15) !important;
+      }
+    }
+
+    &__input {
+      color: #0f172a !important;
+
+      &::placeholder {
+        color: #94a3b8 !important;
+      }
+    }
+  }
+
+  // Chat Bubbles (Light Mode)
+  .chat-bubble {
+    &--bot {
+      .chat-bubble__avatar {
+        background: #f1f5f9 !important;
+        border-color: #e2e8f0 !important;
+      }
+
+      .chat-bubble__content {
+        background: #f1f5f9 !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .chat-bubble__text {
+        color: #0f172a !important;
+      }
+    }
+
+    &--user {
+      .chat-bubble__avatar {
+        background: rgba(255, 65, 0, 0.12) !important;
+        border-color: rgba(255, 65, 0, 0.25) !important;
+        color: #ff4100 !important;
+      }
+
+      .chat-bubble__content {
+        background: #ff4100 !important;
+      }
+
+      .chat-bubble__text {
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  // Previous Conversations Floating Card (Light Mode)
+  .previous-conversations {
+    background: #ffffffba !important;
+    box-shadow:
+      0 20px 45px -10px rgba(15, 23, 42, 0.18),
+      0 0 0 1px rgba(226, 232, 240, 0.9) !important;
+
+    &__title {
+      color: #0f172a !important;
+    }
+
+    &__new-btn {
+      color: #0f172a !important;
+
+      &:hover {
+        color: #ff4100 !important;
+
+        .previous-conversations__new-icon,
+        .previous-conversations__new-icon line {
+          stroke: #ff4100 !important;
+        }
+      }
+    }
+
+    &__new-icon {
+      color: #0f172a !important;
+      stroke: #0f172a !important;
+
+      line,
+      path {
+        stroke: #0f172a !important;
+      }
+    }
+
+    &__item {
+      color: #334155 !important;
+      border-bottom-color: #bcbdbd !important;
+
+      &:hover {
+        color: #0f172a !important;
+        background-color: #f8fafc !important;
+      }
+    }
+
+    &__empty {
+      color: #64748b !important;
+    }
   }
 }
