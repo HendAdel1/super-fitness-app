@@ -155,18 +155,7 @@
     "SMART_COACH": "Smart Coach",
     "PREVIOUS_CONVERSATIONS": "Previous Conversations",
     "INPUT_PLACEHOLDER": "Ask Me Any Things",
-    "NEW_CONVERSATION": "New Conversation",
-    "FOOTER": {
-      "TAGLINE_LINE1": "Push harder, go further. Your",
-      "TAGLINE_LINE2": "fitness journey starts today!",
-      "CONTACT_US": "Contact Us",
-      "GYM_TIMING": "Our Gym Timing",
-      "LOCATION": "Our Location",
-      "HOURS_WEEKDAYS": "Mon - Fri : 08:00 AM - 10:00 PM",
-      "HOURS_WEEKEND": "Sat - Sun : 08:00 AM - 09:00 PM",
-      "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
-      "LOCATION_LINE2": "Dakota 83475"
-    }
+    "NEW_CONVERSATION": "New Conversation"
   },
   "NAV": {
     "HOME": "Home",
