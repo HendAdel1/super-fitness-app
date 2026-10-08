@@ -176,4 +176,20 @@ describe('Navbar', () => {
       expect(component.isUserMenuOpen()).toBe(false);
     });
   });
+
+  describe('Scroll Behavior', () => {
+    it('should update isScrolled when window scroll changes', () => {
+      expect(component.isScrolled()).toBe(false);
+
+      // Simulate scroll past 20px
+      Object.defineProperty(window, 'scrollY', { value: 50, writable: true });
+      component.onWindowScroll();
+      expect(component.isScrolled()).toBe(true);
+
+      // Simulate scroll back to top
+      Object.defineProperty(window, 'scrollY', { value: 0, writable: true });
+      component.onWindowScroll();
+      expect(component.isScrolled()).toBe(false);
+    });
+  });
 });

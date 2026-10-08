@@ -1,5 +1,19 @@
 .navbar {
   background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--scrolled,
+  &--mobile-open {
+    background-color: rgba(28, 29, 31, 0.95);
+    border-color: rgba(109, 109, 109, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  }
 
   &__link {
     color: rgba(255, 255, 255, 0.92);
@@ -43,6 +57,15 @@
 // =============================================================================
 :host-context(html.light) {
   .navbar {
+    &--scrolled,
+    &--mobile-open {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-color: rgba(226, 232, 240, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+    }
+
     &__link {
       color: #1e293b;
 
@@ -56,10 +79,11 @@
     }
 
     &__toggle {
-      color: #1e293b;
+      background-color: var(--color-orange-500, #ff4100);
+      color: #ffffff;
 
       &:hover {
-        color: var(--color-orange-500, #ff4100);
+        background-color: var(--color-orange-600, #cc3300);
       }
     }
 

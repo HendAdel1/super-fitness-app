@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnInit, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import {
   LucideArrowUpRight,
@@ -31,7 +31,7 @@ export interface NavItem {
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {
+export class Navbar implements OnInit {
   readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
@@ -41,6 +41,9 @@ export class Navbar {
   /** Authenticated user avatar dropdown open state */
   readonly isUserMenuOpen = signal(false);
 
+  /** Tracks whether window is scrolled past hero top threshold */
+  readonly isScrolled = signal(false);
+
   /** Primary navigation routes */
   readonly navLinks: readonly NavItem[] = [
     { labelKey: 'NAV.HOME', path: '/home' },
@@ -48,6 +51,21 @@ export class Navbar {
     { labelKey: 'NAV.CLASSES', path: '/classes' },
     { labelKey: 'NAV.HEALTHY', path: '/healthy' },
   ];
+
+  ngOnInit(): void {
+    this.checkScrollPosition();
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.checkScrollPosition();
+  }
+
+  private checkScrollPosition(): void {
+    if (typeof window !== 'undefined') {
+      this.isScrolled.set(window.scrollY > 20);
+    }
+  }
 
   /** Toggles mobile drawer */
   toggleMobileMenu(): void {
