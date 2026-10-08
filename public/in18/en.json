@@ -203,5 +203,8 @@
     "BREAKFAST": "BREAKFAST",
     "LUNCH": "LUNCH",
     "DINNER": "DINNER"
+  },
+  "REUSABLE_CARD": {
+    "READ_MORE": "Read More"
   }
 }

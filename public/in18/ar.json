@@ -203,5 +203,8 @@
     "BREAKFAST": "الإفطار",
     "LUNCH": "الغداء",
     "DINNER": "العشاء"
+  },
+  "REUSABLE_CARD": {
+    "READ_MORE": "اقرأ المزيد"
   }
 }

@@ -11,34 +11,34 @@ import { LucideArrowRight } from '@lucide/angular';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 /**
- * Reusable Meal/Nutrition card component with image, frosted glass bottom panel,
- * uppercase title, and interactive Read More action with orange arrow button.
- * Supports dark/light modes and RTL.
+ * Highly reusable card component featuring top media image with hover zoom,
+ * frosted glassmorphism bottom panel, customizable title, and interactive CTA button.
+ * Supports light/dark themes, RTL, keyboard accessibility, and custom actions.
  */
 @Component({
-  selector: 'app-meal-card',
+  selector: 'app-reusable-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslatePipe, LucideArrowRight],
-  templateUrl: './meal-card.html',
-  styleUrl: './meal-card.scss',
+  templateUrl: './reusable-card.html',
+  styleUrl: './reusable-card.scss',
   host: {
     class: 'block w-full',
   },
 })
-export class MealCard {
+export class ReusableCard {
   private readonly router = inject(Router, { optional: true });
 
-  /** Meal title or i18n translation key (e.g. 'MEAL_CARD.BREAKFAST' or 'BREAKFAST') */
+  /** Card title or i18n translation key (e.g. 'BREAKFAST', 'FITNESS CLASS') */
   readonly title = input.required<string>();
 
-  /** Image asset path or URL (e.g. 'images/healthy-1.webp') */
+  /** Image asset path or URL */
   readonly image = input.required<string>();
 
   /** Optional accessible image alt text. Defaults to title if omitted. */
   readonly alt = input<string>('');
 
-  /** CTA action label or i18n key. Defaults to 'MEAL_CARD.READ_MORE'. */
-  readonly ctaLabel = input<string>('MEAL_CARD.READ_MORE');
+  /** CTA action label or i18n key. Defaults to 'REUSABLE_CARD.READ_MORE'. */
+  readonly ctaLabel = input<string>('REUSABLE_CARD.READ_MORE');
 
   /** Optional router link path to navigate on click. */
   readonly actionUrl = input<string | null>(null);
