@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, OnInit, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import {
-  LucideArrowUpRight,
   LucideLogOut,
   LucideMenu,
   LucideUser,
@@ -9,6 +8,7 @@ import {
 } from '@lucide/angular';
 import { AuthService } from '../../../core/services/auth.service';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
+import { RightArrowIcon } from '../../../shared/ui/right-arrow-icon/right-arrow-icon';
 
 export interface NavItem {
   labelKey: string;
@@ -23,7 +23,7 @@ export interface NavItem {
     RouterLinkActive,
     TranslatePipe,
     LucideUser,
-    LucideArrowUpRight,
+    RightArrowIcon,
     LucideMenu,
     LucideX,
     LucideLogOut,
