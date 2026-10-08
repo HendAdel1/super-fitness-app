@@ -6,7 +6,7 @@ import { MarqueeBanner } from '../../../../shared/components/marquee-banner/marq
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [LanguageSwitcher, TranslatePipe, MarqueeBanner],
+  imports: [LanguageSwitcher, MarqueeBanner, TranslatePipe],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

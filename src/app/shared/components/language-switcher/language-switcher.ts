@@ -89,10 +89,11 @@ export class LanguageSwitcher {
       const root = this.document.documentElement;
       if (theme === 'dark') {
         root.classList.add('dark');
+        root.classList.remove('light');
       } else {
+        root.classList.add('light');
         root.classList.remove('dark');
       }
-      root.classList.remove('light');
     }
   }
 }

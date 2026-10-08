@@ -1,0 +1,24 @@
+<header
+  class="section-title"
+  [class.section-title--center]="align() === 'center'"
+  [class.section-title--start]="align() === 'start'"
+>
+  <div class="section-title__hero">
+    <p class="section-title__watermark" aria-hidden="true">{{ backgroundTitle() }}</p>
+
+    <p class="section-title__label">
+      <svg class="section-title__label-icon" viewBox="0 0 34 20" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
+          <rect x="0.5" y="6.5" width="3.5" height="7" rx="1.2" />
+          <rect x="4.5" y="4.5" width="4.5" height="11" rx="1.5" />
+          <rect x="9.5" y="2.5" width="5.5" height="15" rx="2" />
+          <rect x="15.5" y="8.5" width="3" height="3" rx="0.5" />
+          <rect x="19" y="2.5" width="5.5" height="15" rx="2" />
+          <rect x="25" y="4.5" width="4.5" height="11" rx="1.5" />
+          <rect x="30" y="6.5" width="3.5" height="7" rx="1.2" />
+        </g>
+      </svg>
+      <span>{{ label() }}</span>
+    </p>
+  </div>
+</header>
