@@ -1,0 +1,31 @@
+<section class="healthy-nutrition">
+  <div class="healthy-nutrition__container">
+    <!-- Section Title: watermark + label -->
+    <app-section-title
+      backgroundTitleKey="SECTION_TITLE.HEALTHY.WATERMARK"
+      labelKey="SECTION_TITLE.HEALTHY.LABEL"
+      align="center"
+    />
+
+    <!-- Heading with highlighted "MEAL PLANS" -->
+    <h2 class="healthy-nutrition__heading">
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_PART1' | translate }}
+      <span class="healthy-nutrition__heading--highlight">
+        {{ 'SECTION_TITLE.HEALTHY.HEADING_HIGHLIGHT' | translate }}
+      </span>
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_PART2' | translate }}
+    </h2>
+
+    <!-- Meal Cards Grid -->
+    <div class="healthy-nutrition__cards">
+      @for (card of mealCards(); track card.id) {
+        <app-reusable-card
+          [title]="card.titleKey"
+          [image]="card.image"
+          [alt]="card.alt"
+          ctaLabel="MEAL_CARD.READ_MORE"
+        />
+      }
+    </div>
+  </div>
+</section>
