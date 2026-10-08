@@ -82,5 +82,11 @@ describe('HealthyNutrition', () => {
     component.activeIndex.set(1);
     expect(component.visibleCards().length).toBe(1);
     expect(component.visibleCards()[0].id).toBe('4');
+
+    // Test 'See More' behavior on mobile
+    component.showAllOnMobile.set(true);
+    expect(component.visibleCards().length).toBe(4);
+    expect(component.visibleCards()[0].id).toBe('1');
+    expect(component.visibleCards()[3].id).toBe('4');
   });
 });

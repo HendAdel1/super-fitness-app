@@ -20,8 +20,12 @@ export class HealthyNutrition {
   readonly mealCards = signal<MealCard[]>([]);
   readonly activeIndex = signal(0);
   readonly itemsPerPage = 3;
+  readonly showAllOnMobile = signal(false);
 
   readonly visibleCards = computed(() => {
+    if (this.showAllOnMobile()) {
+      return this.mealCards();
+    }
     const start = this.activeIndex() * this.itemsPerPage;
     return this.mealCards().slice(start, start + this.itemsPerPage);
   });
