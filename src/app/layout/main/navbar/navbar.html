@@ -100,35 +100,55 @@
       }
     </div>
 
-    <!-- Mobile Menu Toggle Button (Mobile) -->
-    <button
-      type="button"
-      (click)="toggleMobileMenu()"
-      class="navbar__toggle p-2 rounded-xl md:hidden transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
-      [attr.aria-label]="'NAV.TOGGLE_MENU' | translate"
-      [attr.aria-expanded]="isMobileMenuOpen()"
-    >
-      @if (isMobileMenuOpen()) {
-        <svg lucideX class="size-7" aria-hidden="true"></svg>
-      } @else {
-        <svg lucideMenu class="size-7" aria-hidden="true"></svg>
+    <!-- Mobile Actions (Right - Mobile) -->
+    <div class="flex items-center gap-2.5 md:hidden">
+      @if (authService.isAuthenticated()) {
+        <button
+          type="button"
+          (click)="toggleUserMenu()"
+          class="navbar__avatar-mobile size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md hover:bg-orange-600 active:scale-95 transition-all cursor-pointer"
+          [attr.aria-label]="'NAV.USER_MENU' | translate"
+        >
+          <svg lucideUser class="size-5 text-white stroke-[2.2]" aria-hidden="true"></svg>
+        </button>
       }
-    </button>
+
+      <button
+        type="button"
+        (click)="toggleMobileMenu()"
+        class="navbar__toggle size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md hover:bg-orange-600 active:scale-95 transition-all cursor-pointer"
+        [attr.aria-label]="'NAV.TOGGLE_MENU' | translate"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+      >
+        @if (isMobileMenuOpen()) {
+          <svg lucideX class="size-5 stroke-[2.5]" aria-hidden="true"></svg>
+        } @else {
+          <svg lucideMenu class="size-5 stroke-[2.5]" aria-hidden="true"></svg>
+        }
+      </button>
+    </div>
   </div>
 
-  <!-- Mobile Navigation Drawer -->
+  <!-- Mobile Backdrop Overlay -->
   @if (isMobileMenuOpen()) {
     <div
-      class="navbar__mobile-menu md:hidden border-b px-4 py-6 shadow-2xl transition-all"
+      class="navbar__backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+      (click)="closeMobileMenu()"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Mobile Navigation Drawer (Sleek Top Panel matching mockup) -->
+    <div
+      class="navbar__mobile-menu absolute top-full left-0 right-0 z-50 md:hidden border-b px-6 py-6 shadow-2xl transition-all"
     >
-      <nav class="flex flex-col gap-4 mb-6">
+      <nav class="flex flex-col gap-3 mb-6" aria-label="Mobile Navigation">
         @for (item of navLinks; track item.labelKey) {
           <a
             [routerLink]="item.path"
             routerLinkActive="text-orange-500 font-semibold"
             [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
             (click)="closeMobileMenu()"
-            class="navbar__link font-baloo text-lg transition-colors hover:text-orange-500 py-1"
+            class="navbar__link font-baloo text-lg transition-colors hover:text-orange-500 py-1.5"
           >
             {{ item.labelKey | translate }}
           </a>
@@ -137,9 +157,9 @@
 
       <div class="border-t border-metal/20 pt-4">
         @if (authService.isAuthenticated()) {
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <div class="size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md">
+              <div class="size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md shrink-0">
                 <svg lucideUser class="size-5 stroke-[2.2]" aria-hidden="true"></svg>
               </div>
               <div class="min-w-0">

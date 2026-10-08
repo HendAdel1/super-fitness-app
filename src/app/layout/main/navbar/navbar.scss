@@ -11,10 +11,12 @@
   }
 
   &__toggle {
+    background-color: var(--color-orange-500, #ff4100);
     color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 65, 0, 0.35);
 
     &:hover {
-      color: var(--color-orange-500, #ff4100);
+      background-color: var(--color-orange-600, #cc3300);
     }
   }
 
@@ -24,9 +26,15 @@
     color: #ffffff;
   }
 
+  &__backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+
   &__mobile-menu {
-    background-color: rgba(36, 36, 36, 0.98);
-    border-color: rgba(109, 109, 109, 0.2);
+    background-color: rgba(28, 29, 31, 0.98);
+    border-color: rgba(109, 109, 109, 0.25);
+    backdrop-filter: blur(16px);
   }
 }
 
