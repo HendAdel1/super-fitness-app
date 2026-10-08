@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
@@ -18,13 +18,25 @@ export class HealthyNutrition {
   private readonly mealCategoryService = inject(MealCategoryService);
   
   readonly mealCards = signal<MealCard[]>([]);
+  readonly activeIndex = signal(0);
+  readonly itemsPerPage = 3;
+
+  readonly visibleCards = computed(() => {
+    const start = this.activeIndex() * this.itemsPerPage;
+    return this.mealCards().slice(start, start + this.itemsPerPage);
+  });
+
+  readonly pages = computed(() => {
+    const totalPages = Math.ceil(this.mealCards().length / this.itemsPerPage);
+    return Array.from({ length: totalPages }, (_, i) => i);
+  });
 
   constructor() {
     this.mealCategoryService.getCategories().pipe(
       takeUntilDestroyed()
     ).subscribe(categories => {
-      // Map API categories to our MealCard model and limit to 3 to maintain the single-row UI design
-      const cards = categories.slice(0, 3).map(category => ({
+      // Map API categories to our MealCard model
+      const cards = categories.map(category => ({
         id: category.idCategory,
         titleKey: category.strCategory,
         image: category.strCategoryThumb,
