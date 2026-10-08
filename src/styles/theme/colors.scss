@@ -23,6 +23,7 @@
 
   --background-image-text-gradient: linear-gradient(to bottom, #6d6d6d, #d3d3d3);
   --background-image-shade: linear-gradient(to bottom, #ffffff, #232425);
+  --background-image-section-watermark: linear-gradient(to bottom, #ffffff, #232425);
 }
 
 @utility text-gradient {
@@ -30,4 +31,25 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+@utility section-title-watermark-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 28%,
+    rgb(0 0 0 / 55%) 48%,
+    rgb(0 0 0 / 18%) 68%,
+    transparent 88%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 28%,
+    rgb(0 0 0 / 55%) 48%,
+    rgb(0 0 0 / 18%) 68%,
+    transparent 88%
+  );
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
 }

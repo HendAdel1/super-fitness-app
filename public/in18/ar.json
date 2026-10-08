@@ -120,6 +120,24 @@
     "WELCOME_BACK": "مرحبًا بك مجددًا في سوبر فيتنس",
     "DASHBOARD": "لوحة التحكم"
   },
+  "SECTION_TITLE": {
+    "HEALTHY": {
+      "WATERMARK": "صحّي",
+      "LABEL": "تغذية صحية"
+    },
+    "WHY_US": {
+      "WATERMARK": "لماذا نحن",
+      "LABEL": "لماذا نحن"
+    },
+    "WORKOUTS": {
+      "WATERMARK": "التمارين",
+      "LABEL": "حصة لياقة"
+    },
+    "ABOUT_US": {
+      "WATERMARK": "من نحن",
+      "LABEL": "من نحن"
+    }
+  },
   "FOOTER": {
     "TAGLINE_LINE1": "ادفع بقوة، واصل إلى الأمام. رحلتك",
     "TAGLINE_LINE2": "اللياقة تبدأ اليوم!",

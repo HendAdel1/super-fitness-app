@@ -1,24 +1,39 @@
 <header
-  class="section-title"
-  [class.section-title--center]="align() === 'center'"
-  [class.section-title--start]="align() === 'start'"
+  class="relative flex w-full max-w-full overflow-visible"
+  [class.justify-start]="align() === 'start'"
+  [class.justify-center]="align() === 'center'"
 >
-  <div class="section-title__hero">
-    <p class="section-title__watermark" aria-hidden="true">{{ backgroundTitle() }}</p>
+  <div
+    class="relative grid max-w-full items-end overflow-visible pb-[0.35rem] max-md:pb-0"
+    [class]="align() === 'start' ? 'inline-grid w-max max-w-full' : 'w-full'"
+  >
+    <h3
+      class="col-start-1 row-start-1 relative z-0 m-0 box-border w-fit max-w-full overflow-visible px-1.5 pb-0.5 pt-2 font-baloo text-[64px] font-extrabold leading-[1.15] tracking-[0.02em] uppercase pointer-events-none select-none text-ink [-webkit-text-fill-color:currentColor] [-webkit-text-stroke:1px_#fff] [paint-order:stroke_fill] section-title-watermark-mask light:text-slate-50 light:[-webkit-text-stroke:1px_var(--color-graphite)] rtl:normal-case"
+      [class.max-md:hidden]="labelKey()"
+      [class.justify-self-start]="align() === 'start'"
+      [class.justify-self-center]="align() === 'center'"
+      [class.text-center]="align() === 'center'"
+      [attr.aria-hidden]="labelKey() ? true : null"
+    >
+      {{ backgroundTitleKey() | translate }}
+    </h3>
 
-    <p class="section-title__label">
-      <svg class="section-title__label-icon" viewBox="0 0 34 20" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
-          <rect x="0.5" y="6.5" width="3.5" height="7" rx="1.2" />
-          <rect x="4.5" y="4.5" width="4.5" height="11" rx="1.5" />
-          <rect x="9.5" y="2.5" width="5.5" height="15" rx="2" />
-          <rect x="15.5" y="8.5" width="3" height="3" rx="0.5" />
-          <rect x="19" y="2.5" width="5.5" height="15" rx="2" />
-          <rect x="25" y="4.5" width="4.5" height="11" rx="1.5" />
-          <rect x="30" y="6.5" width="3.5" height="7" rx="1.2" />
-        </g>
-      </svg>
-      <span>{{ label() }}</span>
-    </p>
+    @if (labelKey(); as key) {
+      <p
+        class="col-start-1 row-start-1 relative z-[2] self-end inline-flex items-center gap-1.5 m-0 -translate-y-1 font-inter text-sm font-semibold leading-none text-orange-500 max-md:translate-y-0 max-md:self-auto"
+        [class.justify-self-start]="align() === 'start'"
+        [class.justify-self-center]="align() === 'center'"
+      >
+        <img
+          class="block h-auto w-9 shrink-0"
+          src="assets/images/icons/weight.png"
+          alt=""
+          width="42"
+          height="24"
+          aria-hidden="true"
+        />
+        <span>{{ key | translate }}</span>
+      </p>
+    }
   </div>
 </header>

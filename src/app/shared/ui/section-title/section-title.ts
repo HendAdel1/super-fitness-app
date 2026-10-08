@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 export type SectionTitleAlign = 'start' | 'center';
 
@@ -6,15 +7,18 @@ export type SectionTitleAlign = 'start' | 'center';
 @Component({
   selector: 'app-section-title',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [TranslatePipe],
   templateUrl: './section-title.html',
-  styleUrl: './section-title.scss',
+  host: {
+    class: 'block w-full max-w-full overflow-visible',
+  },
 })
 export class SectionTitle {
-  /** Main title — large outline text (e.g. ABOUT US, WORKOUTS). */
-  readonly backgroundTitle = input.required<string>();
+  /** i18n key for large outline text (e.g. SECTION_TITLE.HEALTHY.WATERMARK). */
+  readonly backgroundTitleKey = input.required<string>();
 
-  /** Subtitle under the main title (e.g. About Us, Fitness Class). */
-  readonly label = input.required<string>();
+  /** i18n key for orange subtitle; omit for watermark-only sections. */
+  readonly labelKey = input<string>();
 
   readonly align = input<SectionTitleAlign>('start');
 }

@@ -120,6 +120,24 @@
     "WELCOME_BACK": "Welcome Back to Super Fitness",
     "DASHBOARD": "Dashboard"
   },
+  "SECTION_TITLE": {
+    "HEALTHY": {
+      "WATERMARK": "HEALTHY",
+      "LABEL": "Healthy Nutritions"
+    },
+    "WHY_US": {
+      "WATERMARK": "WHY US",
+      "LABEL": "Why Us"
+    },
+    "WORKOUTS": {
+      "WATERMARK": "WORKOUTS",
+      "LABEL": "Fitness Class"
+    },
+    "ABOUT_US": {
+      "WATERMARK": "ABOUT US",
+      "LABEL": "About Us"
+    }
+  },
   "FOOTER": {
     "TAGLINE_LINE1": "Push harder, go further. Your",
     "TAGLINE_LINE2": "fitness journey starts today!",
