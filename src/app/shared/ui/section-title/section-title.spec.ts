@@ -62,7 +62,7 @@ describe('SectionTitle', () => {
 
     const el = fixture.nativeElement as HTMLElement;
     const header = el.querySelector('header');
-    expect(header?.classList.contains('text-center')).toBe(true);
+    expect(header?.classList.contains('justify-center')).toBe(true);
     expect(header?.querySelector('.w-full')).toBeTruthy();
   });
 });
