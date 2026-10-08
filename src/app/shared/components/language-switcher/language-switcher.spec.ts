@@ -1,6 +1,7 @@
 import { signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { SupportedLanguage, TextDirection } from '../../../core/models/translation.models';
 import { TranslationService } from '../../../core/services/translation.service';
 import { LanguageSwitcher } from './language-switcher';
@@ -53,47 +54,38 @@ describe('LanguageSwitcher', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render language buttons reflecting current state', () => {
-    const enButton = fixture.nativeElement.querySelector('[data-test="lang-en"]') as HTMLButtonElement;
-    const arButton = fixture.nativeElement.querySelector('[data-test="lang-ar"]') as HTMLButtonElement;
+  it('should render a single language toggle button that triggers toggleLanguage on click', () => {
+    const langButton = fixture.nativeElement.querySelector('[data-test="toggle-lang"]') as HTMLButtonElement;
+    expect(langButton).toBeTruthy();
+    expect(langButton.textContent?.trim()).toBe('AR');
 
-    expect(enButton).toBeTruthy();
-    expect(arButton).toBeTruthy();
-    expect(enButton.getAttribute('aria-pressed')).toBe('true');
-    expect(arButton.getAttribute('aria-pressed')).toBe('false');
+    langButton.click();
+    expect(translationServiceMock.toggleLanguage).toHaveBeenCalledTimes(1);
   });
 
-  it('should call setLanguage with "ar" when Arabic button is clicked', () => {
-    const arButton = fixture.nativeElement.querySelector('[data-test="lang-ar"]') as HTMLButtonElement;
-    arButton.click();
+  it('should update language toggle button label when language changes', () => {
+    currentLangSignal.set('ar');
+    fixture.detectChanges();
 
-    expect(translationServiceMock.setLanguage).toHaveBeenCalledWith('ar');
+    const langButton = fixture.nativeElement.querySelector('[data-test="toggle-lang"]') as HTMLButtonElement;
+    expect(langButton.textContent?.trim()).toBe('EN');
   });
 
-  it('should not call setLanguage if the already active language is clicked', () => {
-    const enButton = fixture.nativeElement.querySelector('[data-test="lang-en"]') as HTMLButtonElement;
-    enButton.click();
-
-    expect(translationServiceMock.setLanguage).not.toHaveBeenCalled();
-  });
-
-  it('should toggle language via toggleLanguage()', () => {
-    component.toggleLanguage();
-    expect(translationServiceMock.toggleLanguage).toHaveBeenCalled();
-  });
-
-  it('should switch theme between light and dark', () => {
-    const sunButton = fixture.nativeElement.querySelector('[data-test="theme-light"]') as HTMLButtonElement;
-    const moonButton = fixture.nativeElement.querySelector('[data-test="theme-dark"]') as HTMLButtonElement;
-
+  it('should render a single theme toggle button and toggle between dark and light on click', () => {
+    const themeButton = fixture.nativeElement.querySelector('[data-test="toggle-theme"]') as HTMLButtonElement;
+    expect(themeButton).toBeTruthy();
     expect(component.currentTheme()).toBe('dark');
-    expect(moonButton.getAttribute('aria-pressed')).toBe('true');
 
-    sunButton.click();
+    // Click to switch to light
+    themeButton.click();
     fixture.detectChanges();
 
     expect(component.currentTheme()).toBe('light');
-    expect(sunButton.getAttribute('aria-pressed')).toBe('true');
-    expect(moonButton.getAttribute('aria-pressed')).toBe('false');
+
+    // Click to switch back to dark
+    themeButton.click();
+    fixture.detectChanges();
+
+    expect(component.currentTheme()).toBe('dark');
   });
 });
