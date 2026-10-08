@@ -138,5 +138,17 @@
       "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
       "LOCATION_LINE2": "Dakota 83475"
     }
+  },
+  "NAV": {
+    "HOME": "الرئيسية",
+    "ABOUT": "من نحن",
+    "CLASSES": "التمارين",
+    "HEALTHY": "صحي",
+    "LOGIN": "تسجيل الدخول",
+    "SIGN_UP": "إنشاء حساب",
+    "LOGOUT": "تسجيل الخروج",
+    "PROFILE": "الملف الشخصي",
+    "USER_MENU": "قائمة المستخدم",
+    "TOGGLE_MENU": "تبديل القائمة"
   }
 }

@@ -1,7 +1,13 @@
-<section class="relative min-h-dvh bg-ink p-6">
-  <header class="border-b border-metal/20 pb-4">
-    <h1 class="text-xl font-bold font-baloo text-white">{{ 'HOME.WELCOME_BACK' | translate }}</h1>
-  </header>
+<section class="relative min-h-dvh bg-ink flex flex-col">
+  <!-- Top Navigation Bar -->
+  <app-navbar />
+
+  <!-- Main Content Canvas -->
+  <main class="flex-1 p-6">
+    <header class="border-b border-metal/20 pb-4">
+      <h1 class="text-xl font-bold font-baloo text-white">{{ 'HOME.WELCOME_BACK' | translate }}</h1>
+    </header>
+  </main>
 
   <app-marquee-banner
     [services]="['HIIT & CARDIO', 'CROSSFIT ZONE', 'NUTRITION CONSULTING', 'YOGA & PILATES']"
