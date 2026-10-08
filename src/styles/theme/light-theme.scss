@@ -233,10 +233,13 @@ html.light {
     }
 
     button:not(.bg-\[\#ff4100\]) {
-      color: #64748b !important;
+      background-color: #f1f5f9 !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #0f172a !important;
 
       &:hover {
-        color: #0f172a !important;
+        background-color: #e2e8f0 !important;
+        color: var(--color-orange-500, #ff4100) !important;
       }
     }
   }
