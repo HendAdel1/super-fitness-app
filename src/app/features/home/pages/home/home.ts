@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Hero } from '../../components/hero/hero';
 import { LanguageSwitcher } from '../../../../shared/components/language-switcher/language-switcher';
-import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [LanguageSwitcher, TranslatePipe],
+  imports: [Hero, LanguageSwitcher],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

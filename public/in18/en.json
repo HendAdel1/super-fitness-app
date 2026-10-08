@@ -119,5 +119,23 @@
   "HOME": {
     "WELCOME_BACK": "Welcome Back to Super Fitness",
     "DASHBOARD": "Dashboard"
+  },
+  "HERO": {
+    "TITLE_PART1": "YOUR BODY CAN",
+    "STAND": "STAND",
+    "ALMOST": "ALMOST",
+    "TITLE_PART2": "ANYTHING",
+    "SUBTEXT": "It's your mind that needs convincing. Push past your limits, stay committed, and watch as your body transform into powerhouse of strength and resilience. Start your journey today & truly capable of!",
+    "MEMBERS_COUNT": "1200+",
+    "MEMBERS_LABEL": "Active Members",
+    "TRAINERS_COUNT": "12+",
+    "TRAINERS_LABEL": "Certified Trainers",
+    "EXPERIENCE_COUNT": "20+",
+    "EXPERIENCE_LABEL": "Year Of Experience",
+    "GET_STARTED": "Get Started",
+    "EXPLORE_MORE": "Explore More",
+    "CHATBOT_BTN": "Hey Ask Me",
+    "TRAINER_ALT": "Professional Fitness Trainer",
+    "CHATBOT_ALT": "Fitness AI Assistant Robot"
   }
 }
