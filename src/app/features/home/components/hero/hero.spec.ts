@@ -106,7 +106,7 @@ describe('Hero', () => {
     expect(secondaryBtn).toBeTruthy();
     expect(secondaryBtn.textContent).toContain('Explore More');
     expect(secondaryBtn.classList.contains('border-orange-500')).toBe(true);
-    expect(secondaryBtn.querySelector('.hero__btn-arrow svg')).toBeTruthy();
+    expect(secondaryBtn.querySelector('.hero__btn-arrow img')).toBeTruthy();
   });
 
   it('should render trainer image on the right', () => {

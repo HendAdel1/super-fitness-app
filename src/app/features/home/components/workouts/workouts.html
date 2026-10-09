@@ -1,0 +1,97 @@
+<section class="workouts relative w-full overflow-hidden py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+  <!-- Section Background Ambiance -->
+  <div class="workouts__bg absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <img
+      src="images/workouts-bg.webp"
+      alt=""
+      class="h-full w-full object-cover object-center opacity-30 dark:opacity-20 transition-opacity duration-300"
+      loading="lazy"
+    />
+    <div class="workouts__bg-overlay absolute inset-0 backdrop-blur-[3px] transition-colors duration-300"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
+    <!-- Center Watermark & Label -->
+    <app-section-title
+      backgroundTitleKey="SECTION_TITLE.WORKOUTS.WATERMARK"
+      labelKey="SECTION_TITLE.WORKOUTS.LABEL"
+      align="center"
+    />
+
+    <!-- Main Headline with UPCOMING WORKOUTS highlighted in orange -->
+    <h2 class="workouts__headline text-center font-baloo text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-gray-900 dark:text-white mt-4 sm:mt-6 mb-8 sm:mb-10 max-w-3xl leading-snug">
+      {{ 'WORKOUTS.TITLE_MAIN' | translate }} <br />
+      <span>{{ 'WORKOUTS.TITLE_DYNAMIC' | translate }} </span>
+      <span class="text-orange-500">{{ 'WORKOUTS.TITLE_HIGHLIGHT' | translate }}</span>
+    </h2>
+
+    <!-- Horizontal Category Filter Bar -->
+    <nav
+      class="workouts__filters flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar w-full max-w-4xl py-2 px-2"
+      aria-label="Muscle Categories Filter"
+    >
+      <!-- 'Full Body' Primary Pill -->
+      <button
+        type="button"
+        (click)="selectCategory('all')"
+        class="workouts__filter-btn transition-all duration-200 shrink-0 rounded-full px-5 py-2 font-baloo text-sm sm:text-base font-bold tracking-wider uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+        [class.workouts__filter-btn--active]="activeCategory() === 'all'"
+      >
+        {{ 'WORKOUTS.FILTER_FULL_BODY' | translate }}
+      </button>
+
+      <!-- Backend API Muscle Categories -->
+      @for (group of muscleGroups(); track group._id) {
+        <button
+          type="button"
+          (click)="selectCategory(group._id)"
+          class="workouts__filter-btn transition-all duration-200 shrink-0 rounded-full px-4 sm:px-5 py-2 font-baloo text-sm sm:text-base font-semibold tracking-wider uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+          [class.workouts__filter-btn--active]="activeCategory() === group._id"
+        >
+          {{ group.name }}
+        </button>
+      }
+    </nav>
+
+    <!-- Carousel Cards Container -->
+    <div class="workouts__cards-wrapper relative w-full mt-10 sm:mt-14">
+      @if (isLoading()) {
+        <div class="flex items-center justify-center min-h-[380px] w-full" aria-busy="true">
+          <div class="size-12 rounded-full border-4 border-orange-500 border-t-transparent animate-spin"></div>
+        </div>
+      } @else {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch justify-center max-w-6xl mx-auto w-full transition-all duration-300">
+          @for (item of visibleItems(); track item.id) {
+            <div class="w-full flex flex-col">
+              <app-reusable-card
+                [title]="item.title"
+                [image]="item.image"
+                [alt]="item.alt ?? item.title"
+                ctaLabel="WORKOUTS.EXPLORE"
+                (cardClick)="onCardClick(item)"
+              />
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Pagination Dots -->
+    <div
+      class="workouts__pagination flex items-center justify-center gap-2.5 mt-10 sm:mt-14"
+      role="tablist"
+      aria-label="Workouts Carousel Pagination"
+    >
+      @for (page of pages(); track $index) {
+        <button
+          type="button"
+          (click)="goToSlide($index)"
+          class="workouts__dot transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+          [class.workouts__dot--active]="currentSlide() === $index"
+          [attr.aria-label]="'Slide ' + ($index + 1)"
+          [attr.aria-selected]="currentSlide() === $index"
+        ></button>
+      }
+    </div>
+  </div>
+</section>

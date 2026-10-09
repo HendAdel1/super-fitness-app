@@ -1,0 +1,93 @@
+.workouts {
+  background-color: #1a1b1e;
+
+  &__bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(26, 27, 30, 0.92) 0%,
+      rgba(20, 21, 23, 0.97) 100%
+    );
+  }
+
+  &__filter-btn {
+    color: rgba(255, 255, 255, 0.75);
+    background-color: transparent;
+
+    &:hover {
+      color: var(--color-orange-500, #ff4100);
+    }
+
+    &--active {
+      background-color: var(--color-orange-500, #ff4100) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(255, 65, 0, 0.35);
+    }
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+
+    &:hover {
+      background-color: rgba(255, 65, 0, 0.6);
+    }
+
+    &--active {
+      width: 28px;
+      background-color: var(--color-orange-500, #ff4100) !important;
+    }
+  }
+}
+
+// =============================================================================
+// Light Theme Support
+// =============================================================================
+:host-context(html.light) {
+  .workouts {
+    background-color: #f8f9fa;
+
+    &__bg-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(248, 249, 250, 0.92) 0%,
+        rgba(240, 242, 245, 0.97) 100%
+      );
+    }
+
+    &__filter-btn {
+      color: #4b5563;
+
+      &:hover {
+        color: var(--color-orange-500, #ff4100);
+      }
+
+      &--active {
+        background-color: var(--color-orange-500, #ff4100) !important;
+        color: #ffffff !important;
+      }
+    }
+
+    &__dot {
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background-color: rgba(255, 65, 0, 0.6);
+      }
+
+      &--active {
+        background-color: var(--color-orange-500, #ff4100) !important;
+      }
+    }
+  }
+}
+
+// Utility: Hide scrollbar in category filter
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

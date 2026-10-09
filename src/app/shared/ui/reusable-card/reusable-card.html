@@ -4,8 +4,6 @@
   [attr.role]="'article'"
   [attr.aria-label]="title() | translate"
   (click)="onCardClick()"
-  (keydown.enter)="onCardClick()"
-  (keydown.space)="$event.preventDefault(); onCardClick()"
 >
   <!-- Top Portion: Image Container with smooth zoom on hover -->
   <div class="reusable-card__image-wrapper relative w-full aspect-[4/3] sm:aspect-[1.15/1] overflow-hidden bg-graphite/40">
