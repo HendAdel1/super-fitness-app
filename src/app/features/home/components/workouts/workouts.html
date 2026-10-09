@@ -1,4 +1,4 @@
-<section class="workouts relative isolate w-full overflow-hidden py-12 sm:py-16 lg:py-20 transition-colors duration-300">
+<section class="workouts relative isolate w-full overflow-hidden py-10 sm:py-14 lg:py-0 lg:h-[771px] transition-colors duration-300 flex flex-col justify-start">
   <!-- 1. Background Gym Photo (spans entire section) -->
   <div class="workouts__bg-photo absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
     <img
@@ -15,7 +15,7 @@
   <div class="workouts__banner-strip absolute inset-x-0 z-[1] transition-colors duration-300 pointer-events-none" aria-hidden="true"></div>
 
   <!-- 3. Foreground Content -->
-  <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8 w-full">
+  <div class="max-w-[1440px] mx-auto relative z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8 w-full lg:pt-[58px]">
     <!-- Center Watermark & Subtitle -->
     <app-section-title
       backgroundTitleKey="SECTION_TITLE.WORKOUTS.WATERMARK"
@@ -24,7 +24,7 @@
     />
 
     <!-- Main Headline with UPCOMING WORKOUTS highlighted in orange -->
-    <h2 class="workouts__headline text-center font-baloo text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mt-4 sm:mt-5 mb-8 sm:mb-10 max-w-3xl leading-snug">
+    <h2 class="workouts__headline text-center font-baloo text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[30px] font-extrabold uppercase tracking-tight mt-1 sm:mt-2 mb-3 sm:mb-4 max-w-3xl leading-snug">
       {{ 'WORKOUTS.TITLE_MAIN' | translate }} <br />
       <span>{{ 'WORKOUTS.TITLE_DYNAMIC' | translate }} </span>
       <span class="text-orange-500">{{ 'WORKOUTS.TITLE_HIGHLIGHT' | translate }}</span>
@@ -60,7 +60,7 @@
 
     <!-- Interactive Carousel Cards Track Viewport -->
     <div
-      class="workouts__carousel-viewport relative w-full overflow-hidden max-w-6xl mx-auto mt-8 sm:mt-12 select-none"
+      class="workouts__carousel-viewport relative w-full overflow-hidden max-w-6xl mx-auto mt-4 sm:mt-6 select-none"
       (touchstart)="onTouchStart($event)"
       (touchend)="onTouchEnd($event)"
     >

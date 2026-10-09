@@ -1,5 +1,11 @@
 .workouts {
   background-color: transparent;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    height: 771px;
+    min-height: 771px;
+  }
 
   // 1. Gym photo full coverage
   &__bg-photo {
@@ -17,7 +23,7 @@
     );
   }
 
-  // 2. Horizontal Banner Strip behind header & upper cards
+  // 2. Horizontal Banner Strip behind header & upper cards (Figma: top: 57px, height: 414px, opacity: 1)
   &__banner-strip {
     top: 2.5rem;
     bottom: 8rem;
@@ -32,8 +38,12 @@
     }
 
     @media (min-width: 1024px) {
-      top: 3.75rem;
-      bottom: 11rem;
+      top: 57px;
+      height: 414px;
+      bottom: auto;
+      width: 100%;
+      opacity: 1;
+      transform: rotate(0deg);
     }
   }
 
