@@ -123,7 +123,11 @@
   "SECTION_TITLE": {
     "HEALTHY": {
       "WATERMARK": "صحّي",
-      "LABEL": "تغذية صحية"
+      "LABEL": "تغذية صحية",
+      "HEADING_PART1": "غذِّ رحلتك الرياضية بخطط",
+      "HEADING_HIGHLIGHT": "وجبات مخصصة",
+      "HEADING_PART2": "لك",
+      "SEE_MORE": "عرض المزيد"
     },
     "WHY_US": {
       "WATERMARK": "لماذا نحن",
