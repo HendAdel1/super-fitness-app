@@ -40,6 +40,25 @@ describe('Workouts', () => {
       },
     ],
     getMuscleGroups: vi.fn(() => of(mockMuscleGroups)),
+    getRandomMuscles: vi.fn(() =>
+      of([
+        {
+          _id: 'r1',
+          name: 'Biceps Femoris',
+          image: 'https://iili.io/33p7ww7.png',
+        },
+        {
+          _id: 'r2',
+          name: 'Rectus Abdominis',
+          image: 'https://iili.io/33pYHNI.png',
+        },
+        {
+          _id: 'r3',
+          name: 'Posterior Deltoids',
+          image: 'https://iili.io/33p7ene.png',
+        },
+      ]),
+    ),
     getMusclesByGroupId: vi.fn((id: string) =>
       of([
         {
@@ -52,6 +71,7 @@ describe('Workouts', () => {
   };
 
   const translationServiceMock = {
+    direction: vi.fn(() => 'ltr'),
     translate: vi.fn((key: string) => {
       const map: Record<string, string> = {
         'SECTION_TITLE.WORKOUTS.WATERMARK': 'WORKOUTS',
@@ -124,14 +144,15 @@ describe('Workouts', () => {
     expect(component.items()[0].title).toBe('Pectoralis Major');
   });
 
-  it('should reset to default featured workouts when Full Body category is selected', () => {
+  it('should fetch random muscles from API when Full Body category is selected', () => {
     component.selectCategory('grp-1');
     expect(component.items().length).toBe(1);
 
     component.selectCategory('all');
+    expect(workoutsServiceMock.getRandomMuscles).toHaveBeenCalled();
     expect(component.activeCategory()).toBe('all');
     expect(component.items().length).toBe(3);
-    expect(component.items()[0].title).toBe('WORKOUTS.GROUP_WORKOUT');
+    expect(component.items()[0].title).toBe('Biceps Femoris');
   });
 
   it('should render cards and pagination dots', () => {

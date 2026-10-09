@@ -67,4 +67,23 @@ describe('WorkoutsService', () => {
     const req = httpTesting.expectOne(`${environment.apiBaseUrl}/muscles`);
     req.error(new ProgressEvent('Network error'));
   });
+
+  it('should fetch 20 random muscles from API', () => {
+    const mockMuscles = [
+      { _id: 'r1', name: 'Biceps Femoris', image: 'https://iili.io/33p7ww7.png' },
+    ];
+
+    service.getRandomMuscles().subscribe((muscles) => {
+      expect(muscles.length).toBe(1);
+      expect(muscles[0].name).toBe('Biceps Femoris');
+    });
+
+    const req = httpTesting.expectOne(`${environment.apiBaseUrl}/muscles/random`);
+    expect(req.request.method).toBe('GET');
+    req.flush({
+      message: 'success',
+      totalMuscles: 1,
+      muscles: mockMuscles,
+    });
+  });
 });

@@ -34,13 +34,11 @@ export class Workouts implements OnInit {
   /** Currently selected filter category ID ('all' for Full Body) */
   readonly activeCategory = signal<string>('all');
 
-  /** All workout / muscle items for currently active category */
-  readonly items = signal<WorkoutCardItem[]>([
-    ...this.workoutsService.defaultFeaturedWorkouts,
-  ]);
+  /** All workout / muscle items for currently active category (loaded dynamically from backend) */
+  readonly items = signal<WorkoutCardItem[]>([]);
 
   /** Loading state during API category switches */
-  readonly isLoading = signal<boolean>(false);
+  readonly isLoading = signal<boolean>(true);
 
   /** Active carousel slide / item index (0-indexed) */
   readonly currentSlide = signal<number>(0);
@@ -99,6 +97,7 @@ export class Workouts implements OnInit {
   ngOnInit(): void {
     this.updateItemsPerPage();
     this.loadMuscleGroups();
+    this.selectCategory('all');
   }
 
   @HostListener('window:resize')
@@ -129,35 +128,32 @@ export class Workouts implements OnInit {
     });
   }
 
-  /** Filters programs by selected muscle group */
+  /** Filters programs by selected muscle group directly from backend API */
   selectCategory(groupId: string): void {
     this.activeCategory.set(groupId);
     this.currentSlide.set(0);
-
-    if (groupId === 'all') {
-      this.items.set([...this.workoutsService.defaultFeaturedWorkouts]);
-      return;
-    }
-
     this.isLoading.set(true);
-    this.workoutsService.getMusclesByGroupId(groupId).subscribe({
+
+    const request$ =
+      groupId === 'all'
+        ? this.workoutsService.getRandomMuscles()
+        : this.workoutsService.getMusclesByGroupId(groupId);
+
+    request$.subscribe({
       next: (muscles) => {
-        if (muscles && muscles.length > 0) {
-          const mapped: WorkoutCardItem[] = muscles.map((m) => ({
-            id: m._id,
-            title: m.name,
-            image: m.image,
-            alt: m.name,
-          }));
-          this.items.set(mapped);
-        } else {
-          // If no specific exercises for this group, display default workouts
-          this.items.set([...this.workoutsService.defaultFeaturedWorkouts]);
-        }
+        const itemsWithImages = (muscles ?? []).filter((m) => !!m.image);
+        const sourceList = itemsWithImages.length > 0 ? itemsWithImages : (muscles ?? []);
+        const mapped: WorkoutCardItem[] = sourceList.map((m) => ({
+          id: m._id,
+          title: m.name,
+          image: m.image || '/images/workouts-1.webp',
+          alt: m.name,
+        }));
+        this.items.set(mapped);
         this.isLoading.set(false);
       },
       error: () => {
-        this.items.set([...this.workoutsService.defaultFeaturedWorkouts]);
+        this.items.set([]);
         this.isLoading.set(false);
       },
     });

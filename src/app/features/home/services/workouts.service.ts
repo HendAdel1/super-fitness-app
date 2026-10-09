@@ -25,6 +25,12 @@ export interface MuscleDetailsApiResponse {
   muscles: Muscle[];
 }
 
+export interface RandomMusclesApiResponse {
+  message: string;
+  totalMuscles: number;
+  muscles: Muscle[];
+}
+
 export interface WorkoutCardItem {
   id: string;
   title: string;
@@ -84,6 +90,19 @@ export class WorkoutsService {
         map((res) => res.muscles ?? []),
         catchError((error) => {
           console.error(`Failed to load muscles for group ${groupId}:`, error);
+          return of([]);
+        }),
+      );
+  }
+
+  /** Fetches 20 random muscles (used for Full Body) from backend API */
+  getRandomMuscles(): Observable<Muscle[]> {
+    return this.http
+      .get<RandomMusclesApiResponse>(`${this.baseUrl}/muscles/random`)
+      .pipe(
+        map((res) => res.muscles ?? []),
+        catchError((error) => {
+          console.error('Failed to load random muscles from API:', error);
           return of([]);
         }),
       );

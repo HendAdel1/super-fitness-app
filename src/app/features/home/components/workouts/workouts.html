@@ -68,6 +68,12 @@
         <div class="flex items-center justify-center min-h-[380px] w-full" aria-busy="true">
           <div class="size-12 rounded-full border-4 border-orange-500 border-t-transparent animate-spin"></div>
         </div>
+      } @else if (items().length === 0) {
+        <div class="flex items-center justify-center min-h-[300px] w-full text-center">
+          <p class="font-rubik text-base sm:text-lg text-gray-300">
+            {{ 'WORKOUTS.NO_WORKOUTS' | translate }}
+          </p>
+        </div>
       } @else {
         <div
           class="workouts__carousel-track flex transition-transform duration-500 ease-out will-change-transform"
@@ -92,21 +98,23 @@
     </div>
 
     <!-- Pagination Dots -->
-    <div
-      class="workouts__pagination flex items-center justify-center gap-2.5 mt-8 sm:mt-12"
-      role="tablist"
-      aria-label="Workouts Carousel Pagination"
-    >
-      @for (page of pages(); track $index) {
-        <button
-          type="button"
-          (click)="goToSlide($index)"
-          class="workouts__dot transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
-          [class.workouts__dot--active]="currentSlide() === $index"
-          [attr.aria-label]="'Slide ' + ($index + 1)"
-          [attr.aria-selected]="currentSlide() === $index"
-        ></button>
-      }
-    </div>
+    @if (!isLoading() && items().length > 0) {
+      <div
+        class="workouts__pagination flex items-center justify-center gap-2.5 mt-8 sm:mt-12"
+        role="tablist"
+        aria-label="Workouts Carousel Pagination"
+      >
+        @for (page of pages(); track $index) {
+          <button
+            type="button"
+            (click)="goToSlide($index)"
+            class="workouts__dot transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+            [class.workouts__dot--active]="currentSlide() === $index"
+            [attr.aria-label]="'Slide ' + ($index + 1)"
+            [attr.aria-selected]="currentSlide() === $index"
+          ></button>
+        }
+      </div>
+    }
   </div>
 </section>
