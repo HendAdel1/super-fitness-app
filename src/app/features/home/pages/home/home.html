@@ -20,6 +20,16 @@
 
   <app-about-us-section />
 
+  <!-- Healthy Nutrition Section -->
+  <main class="flex-1 flex flex-col justify-center">
+    <app-healthy-nutrition />
+  </main>
+
+  <app-marquee-banner
+    [services]="['HIIT & CARDIO', 'CROSSFIT ZONE', 'NUTRITION CONSULTING', 'YOGA & PILATES']"
+    [animationSpeed]="20"
+  />
+
   <!-- Floating Preferences Widget (Language & Theme) -->
   <aside class="fixed bottom-4 start-4 sm:bottom-6 sm:start-6 z-50 pointer-events-auto">
     <app-language-switcher />
