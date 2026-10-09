@@ -7,6 +7,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
+import { TranslationService } from '../../../../core/services/translation.service';
 import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 import { ReusableCard } from '../../../../shared/ui/reusable-card/reusable-card';
 import { SectionTitle } from '../../../../shared/ui/section-title/section-title';
@@ -25,6 +26,7 @@ import {
 })
 export class Workouts implements OnInit {
   private readonly workoutsService = inject(WorkoutsService);
+  private readonly translationService = inject(TranslationService, { optional: true });
 
   /** Muscle groups loaded from backend API */
   readonly muscleGroups = signal<MuscleGroup[]>([]);
@@ -40,13 +42,34 @@ export class Workouts implements OnInit {
   /** Loading state during API category switches */
   readonly isLoading = signal<boolean>(false);
 
-  /** Active carousel slide / page index (0-indexed) */
+  /** Active carousel slide / item index (0-indexed) */
   readonly currentSlide = signal<number>(0);
 
   /** Responsive items per view based on screen size */
   readonly itemsPerPage = signal<number>(3);
 
-  /** Computed total number of carousel pages */
+  /** Touch swipe starting clientX */
+  private touchStartX = 0;
+
+  /** RTL direction check for correct translation transform */
+  readonly isRtl = computed(() => {
+    return this.translationService?.direction() === 'rtl';
+  });
+
+  /** Slide width percentage based on itemsPerPage */
+  readonly slideWidth = computed(() => {
+    const perPage = this.itemsPerPage();
+    return `${100 / perPage}%`;
+  });
+
+  /** Max slide offset index */
+  readonly maxSlideIndex = computed(() => {
+    const total = this.items().length;
+    const perPage = this.itemsPerPage();
+    return Math.max(0, total - perPage);
+  });
+
+  /** Total number of carousel page views */
   readonly totalPages = computed(() => {
     const total = this.items().length;
     const perPage = this.itemsPerPage();
@@ -55,19 +78,22 @@ export class Workouts implements OnInit {
 
   /** Computed array of pages for pagination dot indicators */
   readonly pages = computed(() => {
-    const count = this.totalPages();
-    // Guarantee at least 3 dots matching mockup presentation if there are items
-    const minDots = Math.max(count, Math.min(3, this.items().length));
-    return Array.from({ length: minDots }, (_, i) => i);
+    const total = this.items().length;
+    const perPage = this.itemsPerPage();
+    if (total <= perPage) {
+      return Array.from({ length: Math.min(3, Math.max(1, total)) }, (_, i) => i);
+    }
+    const count = Math.ceil(total / perPage);
+    return Array.from({ length: Math.max(count, 3) }, (_, i) => i);
   });
 
-  /** Items currently visible in the active carousel slide */
-  readonly visibleItems = computed(() => {
-    const list = this.items();
+  /** Computed CSS transform string for the carousel track */
+  readonly trackTransform = computed(() => {
+    const slide = this.currentSlide();
     const perPage = this.itemsPerPage();
-    const page = Math.min(this.currentSlide(), Math.max(0, this.totalPages() - 1));
-    const start = page * perPage;
-    return list.slice(start, start + perPage);
+    const percentage = (slide * 100) / perPage;
+    const isRtl = this.isRtl();
+    return isRtl ? `translateX(${percentage}%)` : `translateX(-${percentage}%)`;
   });
 
   ngOnInit(): void {
@@ -90,9 +116,13 @@ export class Workouts implements OnInit {
     } else {
       this.itemsPerPage.set(3);
     }
+    // Clamp slide if resized
+    if (this.currentSlide() > this.maxSlideIndex()) {
+      this.currentSlide.set(this.maxSlideIndex());
+    }
   }
 
-  /** Loads muscle groups from API and keeps 'Full Body' as the initial active category */
+  /** Loads muscle groups from API */
   loadMuscleGroups(): void {
     this.workoutsService.getMuscleGroups().subscribe((groups) => {
       this.muscleGroups.set(groups);
@@ -135,18 +165,44 @@ export class Workouts implements OnInit {
 
   /** Navigates carousel to specific slide index */
   goToSlide(index: number): void {
-    const maxIndex = Math.max(0, this.totalPages() - 1);
-    this.currentSlide.set(Math.min(index, maxIndex));
+    const max = this.maxSlideIndex();
+    if (max === 0) {
+      this.currentSlide.set(0);
+      return;
+    }
+    const target = Math.min(index, max);
+    this.currentSlide.set(target);
   }
 
   /** Navigates to previous carousel slide */
   prevSlide(): void {
-    this.currentSlide.update((curr) => (curr > 0 ? curr - 1 : this.totalPages() - 1));
+    const max = this.maxSlideIndex();
+    if (max === 0) return;
+    this.currentSlide.update((curr) => (curr > 0 ? curr - 1 : max));
   }
 
   /** Navigates to next carousel slide */
   nextSlide(): void {
-    this.currentSlide.update((curr) => (curr < this.totalPages() - 1 ? curr + 1 : 0));
+    const max = this.maxSlideIndex();
+    if (max === 0) return;
+    this.currentSlide.update((curr) => (curr < max ? curr + 1 : 0));
+  }
+
+  /** Touch swipe navigation */
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    const deltaX = event.changedTouches[0].clientX - this.touchStartX;
+    const threshold = 40;
+    const isRtl = this.isRtl();
+
+    if (deltaX < -threshold) {
+      if (isRtl) this.prevSlide(); else this.nextSlide();
+    } else if (deltaX > threshold) {
+      if (isRtl) this.nextSlide(); else this.prevSlide();
+    }
   }
 
   /** Card click handler */

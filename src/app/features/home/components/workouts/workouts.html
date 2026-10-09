@@ -1,17 +1,22 @@
-<section class="workouts relative w-full overflow-hidden py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-  <!-- Section Background Ambiance -->
-  <div class="workouts__bg absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+<section class="workouts relative w-full overflow-hidden py-12 sm:py-16 lg:py-20 transition-colors duration-300">
+  <!-- 1. Background Gym Photo (spans entire section) -->
+  <div class="workouts__bg-photo absolute inset-0 -z-30 overflow-hidden" aria-hidden="true">
     <img
       src="images/workouts-bg.webp"
       alt=""
-      class="h-full w-full object-cover object-center opacity-30 dark:opacity-20 transition-opacity duration-300"
+      class="h-full w-full object-cover object-center"
       loading="lazy"
     />
-    <div class="workouts__bg-overlay absolute inset-0 backdrop-blur-[3px] transition-colors duration-300"></div>
+    <!-- Base dark wash over photo -->
+    <div class="workouts__bg-dark-overlay absolute inset-0 transition-colors duration-300"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
-    <!-- Center Watermark & Label -->
+  <!-- 2. Horizontal Grey Banner Strip (#AEAEAD in Light Mode) behind header & upper half of cards -->
+  <div class="workouts__banner-strip absolute inset-x-0 -z-20 transition-colors duration-300" aria-hidden="true"></div>
+
+  <!-- 3. Foreground Content -->
+  <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8 w-full">
+    <!-- Center Watermark & Subtitle -->
     <app-section-title
       backgroundTitleKey="SECTION_TITLE.WORKOUTS.WATERMARK"
       labelKey="SECTION_TITLE.WORKOUTS.LABEL"
@@ -19,7 +24,7 @@
     />
 
     <!-- Main Headline with UPCOMING WORKOUTS highlighted in orange -->
-    <h2 class="workouts__headline text-center font-baloo text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-gray-900 dark:text-white mt-4 sm:mt-6 mb-8 sm:mb-10 max-w-3xl leading-snug">
+    <h2 class="workouts__headline text-center font-baloo text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mt-4 sm:mt-5 mb-8 sm:mb-10 max-w-3xl leading-snug">
       {{ 'WORKOUTS.TITLE_MAIN' | translate }} <br />
       <span>{{ 'WORKOUTS.TITLE_DYNAMIC' | translate }} </span>
       <span class="text-orange-500">{{ 'WORKOUTS.TITLE_HIGHLIGHT' | translate }}</span>
@@ -53,16 +58,26 @@
       }
     </nav>
 
-    <!-- Carousel Cards Container -->
-    <div class="workouts__cards-wrapper relative w-full mt-10 sm:mt-14">
+    <!-- Interactive Carousel Cards Track Viewport -->
+    <div
+      class="workouts__carousel-viewport relative w-full overflow-hidden max-w-6xl mx-auto mt-8 sm:mt-12 select-none"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
       @if (isLoading()) {
         <div class="flex items-center justify-center min-h-[380px] w-full" aria-busy="true">
           <div class="size-12 rounded-full border-4 border-orange-500 border-t-transparent animate-spin"></div>
         </div>
       } @else {
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch justify-center max-w-6xl mx-auto w-full transition-all duration-300">
-          @for (item of visibleItems(); track item.id) {
-            <div class="w-full flex flex-col">
+        <div
+          class="workouts__carousel-track flex transition-transform duration-500 ease-out will-change-transform"
+          [style.transform]="trackTransform()"
+        >
+          @for (item of items(); track item.id; let idx = $index) {
+            <div
+              class="workouts__carousel-slide flex-shrink-0 px-2.5 sm:px-3.5 box-border"
+              [style.width]="slideWidth()"
+            >
               <app-reusable-card
                 [title]="item.title"
                 [image]="item.image"
@@ -78,7 +93,7 @@
 
     <!-- Pagination Dots -->
     <div
-      class="workouts__pagination flex items-center justify-center gap-2.5 mt-10 sm:mt-14"
+      class="workouts__pagination flex items-center justify-center gap-2.5 mt-8 sm:mt-12"
       role="tablist"
       aria-label="Workouts Carousel Pagination"
     >
