@@ -243,5 +243,18 @@
     "ALT_IMAGE_2": "Bodybuilder curling dumbbells",
     "ALT_IMAGE_3": "Trainer in modern gym",
     "ALT_IMAGE_4": "Athlete stretching arms"
+  },
+  "WORKOUTS": {
+    "TITLE_MAIN": "TRANSFORM YOUR BODY WITH OUR",
+    "TITLE_DYNAMIC": "DYNAMIC",
+    "TITLE_HIGHLIGHT": "UPCOMING WORKOUTS",
+    "FILTER_FULL_BODY": "Full Body",
+    "EXPLORE": "Explore",
+    "GROUP_WORKOUT": "GROUP WORKOUT",
+    "PERSONAL_TRAINING": "PERSONAL TRAINING",
+    "MUSCLE_BUILDING": "MUSCLE BUILDING",
+    "NO_WORKOUTS": "No workouts found for this category.",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next"
   }
 }
