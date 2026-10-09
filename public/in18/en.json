@@ -223,5 +223,21 @@
   },
   "REUSABLE_CARD": {
     "READ_MORE": "Read More"
+  },
+  "WHY_US": {
+    "TITLE_MAIN": "ELEVATE FITNESS WITH THE",
+    "TITLE_HIGHLIGHT": "BEST WAY",
+    "TITLE_SUFFIX": "POSSIBLE",
+    "DESCRIPTION": "We offer a fitness journey that's tailored to your goals, supported by professional trainers and a welcoming community. Whether it's weight loss, strength building, or overall wellness, our proven methods.",
+    "STEP_1_TITLE": "Personalized Fitness Plans",
+    "STEP_1_DESC": "We tailor every workout to fit your unique goals and fitness level ensuring that you make the most progress.",
+    "STEP_2_TITLE": "Results-Driven Focus",
+    "STEP_2_DESC": "Everything we do is designed to help you achieve measurable results, whether you're aiming for weight loss.",
+    "STEP_3_TITLE": "State-Of-The-Art Equipment",
+    "STEP_3_DESC": "We provide the latest in gym equipment, from cardio machines to free weights, designed to support every type.",
+    "ALT_IMAGE_1": "Gymnast training on rings",
+    "ALT_IMAGE_2": "Bodybuilder curling dumbbells",
+    "ALT_IMAGE_3": "Trainer in modern gym",
+    "ALT_IMAGE_4": "Athlete stretching arms"
   }
 }
