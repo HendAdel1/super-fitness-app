@@ -1,5 +1,5 @@
 .workouts {
-  background-color: #1a1b1e;
+  background-color: transparent;
 
   // 1. Gym photo full coverage
   &__bg-photo {
@@ -21,11 +21,9 @@
   &__banner-strip {
     top: 2.5rem;
     bottom: 8rem;
-    background-color: rgba(30, 32, 36, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-top: 1px solid rgba(255, 255, 255, 0.09);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    background-color: #232528;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 
     @media (min-width: 640px) {
@@ -78,26 +76,25 @@
 // =============================================================================
 // Light Theme Support
 // =============================================================================
-:host-context(html.light) {
+:host-context(html.light),
+:host-context(.light) {
   .workouts {
-    background-color: #e5e7eb;
+    background-color: transparent;
 
     &__bg-photo {
       img {
-        opacity: 0.75;
-        filter: brightness(0.55) contrast(1.05);
+        opacity: 0.85;
+        filter: brightness(0.65) contrast(1.05);
       }
     }
 
     &__bg-dark-overlay {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.15);
     }
 
     // Exact #AEAEAD banner strip requested by the user!
     &__banner-strip {
-      background-color: #AEAEAD;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
+      background-color: #AEAEAD !important;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
       border-bottom: 1px solid rgba(0, 0, 0, 0.12);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);

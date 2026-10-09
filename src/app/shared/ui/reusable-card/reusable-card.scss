@@ -30,7 +30,8 @@
 // =============================================================================
 // Light Theme Support
 // =============================================================================
-:host-context(html.light) {
+:host-context(html.light),
+:host-context(.light) {
   .reusable-card {
     border-color: rgba(226, 232, 240, 0.9);
     background-color: #ffffff;
