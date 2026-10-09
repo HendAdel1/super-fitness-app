@@ -4,11 +4,13 @@ import { Hero } from '../../components/hero/hero';
 import { LanguageSwitcher } from '../../../../shared/components/language-switcher/language-switcher';
 import { MarqueeBanner } from '../../../../shared/components/marquee-banner/marquee-banner';
 import { WhyUs } from '../../components/why-us/why-us';
+import { AboutUsSection } from '../../../../shared/sections/about-us-section/about-us-section';
 
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [Navbar, Hero, LanguageSwitcher, MarqueeBanner,WhyUs],
+  imports: [Navbar, Hero, LanguageSwitcher, MarqueeBanner, AboutUsSection],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
